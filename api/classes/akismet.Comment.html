@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Comment - Akismet.js</title>
+    <title>akismet.Comment - Akismet.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -15,11 +15,11 @@
     <div id="hd" class="yui3-g header">
         <div class="yui3-u-3-4">
             
-                <h1><img src="http://api.belin.io/akismet.js/favicon.ico" title="Akismet.js"></h1>
+                <h1><img src="http://dev.belin.io/akismet.js/favicon.ico" title="Akismet.js"></h1>
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.1.0</em>
+            <em>API Docs for: 0.2.1</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -41,15 +41,19 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="../classes/Author.html">Author</a></li>
+                <li><a href="../classes/akismet.Author.html">akismet.Author</a></li>
             
-                <li><a href="../classes/Client.html">Client</a></li>
+                <li><a href="../classes/akismet.Client.html">akismet.Client</a></li>
             
-                <li><a href="../classes/Comment.html">Comment</a></li>
+                <li><a href="../classes/akismet.Comment.html">akismet.Comment</a></li>
             
-                <li><a href="../classes/CommentType.html">CommentType</a></li>
+                <li><a href="../classes/akismet.CommentType.html">akismet.CommentType</a></li>
             
-                <li><a href="../classes/EndPoints.html">EndPoints</a></li>
+                <li><a href="../classes/akismet.EndPoints.html">akismet.EndPoints</a></li>
+            
+                <li><a href="../classes/akismet.HTTPHeaders.html">akismet.HTTPHeaders</a></li>
+            
+                <li><a href="../classes/akismet.Server.html">akismet.Server</a></li>
             
             </ul>
 
@@ -58,6 +62,10 @@
                 <li><a href="../modules/client.html">client</a></li>
             
                 <li><a href="../modules/comment.html">comment</a></li>
+            
+                <li><a href="../modules/enums.html">enums</a></li>
+            
+                <li><a href="../modules/server.html">server</a></li>
             
             </ul>
         </div>
@@ -94,12 +102,16 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Comment Class</h1>
+                        <h1>akismet.Comment Class</h1>
 <div class="box meta">
     
 
     
 
+    
+        <div class="foundat">
+            Defined in: <a href="../files/lib_comment.js.html#l139"><code>lib\comment.js:139</code></a>
+        </div>
     
 
     
@@ -114,15 +126,15 @@
 
 
 <div class="box intro">
-    <p>Represents a comment submitted by an <code>Author</code>.</p>
+    <p>Represents a comment submitted by an author.</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Comment" class="method item">
-    <h3 class="name"><code>Comment</code></h3>
+        <div id="method_akismet.Comment" class="method item">
+    <h3 class="name"><code>akismet.Comment</code></h3>
 
     
         <div class="args">
@@ -158,8 +170,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_comment.js.html#l139"><code>lib\comment.js:139</code></a>
         
         </p>
 
@@ -333,7 +349,7 @@
 
     
         <span class="returns-inline">
-            <span class="type"><a href="../classes/Comment.html" class="crosslink">Comment</a></span>
+            <span class="type">Comment</span>
         </span>
     
 
@@ -357,8 +373,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_comment.js.html#l189"><code>lib\comment.js:189</code></a>
         
         </p>
 
@@ -369,7 +389,7 @@
     </div>
 
     <div class="description">
-        <p>Creates a new <code>Comment</code> from the specified JSON string.</p>
+        <p>Creates a new comment from the specified JSON string.</p>
 
     </div>
 
@@ -388,7 +408,7 @@
                     
 
                     <div class="param-description">
-                        <p>A JSON string, or an already parsed object, representing an <code>Comment</code>.</p>
+                        <p>A JSON string, or an already parsed object, representing a comment.</p>
 
                     </div>
 
@@ -406,7 +426,7 @@
             <div class="returns-description">
                 
                     
-                        <span class="type"><a href="../classes/Comment.html" class="crosslink">Comment</a></span>:
+                        <span class="type">Comment</span>:
                     
                     <p>The instance corresponding to the specified JSON object, or <code>null</code> if a parsing error occurred.</p>
 
@@ -450,8 +470,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_comment.js.html#l223"><code>lib\comment.js:223</code></a>
         
         </p>
 
@@ -519,8 +543,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_comment.js.html#l242"><code>lib\comment.js:242</code></a>
         
         </p>
 
@@ -567,7 +595,7 @@
                 
                     <div id="property_author" class="property item">
     <h3 class="name"><code>author</code></h3>
-    <span class="type"><a href="../classes/Author.html" class="crosslink">Author</a></span>
+    <span class="type"><a href="../classes/akismet.Author.html" class="crosslink">akismet.Author</a></span>
 
     
 
@@ -583,8 +611,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_comment.js.html#l147"><code>lib\comment.js:147</code></a>
         
         </p>
 
@@ -624,8 +656,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_comment.js.html#l154"><code>lib\comment.js:154</code></a>
         
         </p>
 
@@ -665,8 +701,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_comment.js.html#l161"><code>lib\comment.js:161</code></a>
         
         </p>
 
@@ -706,8 +746,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_comment.js.html#l168"><code>lib\comment.js:168</code></a>
         
         </p>
 
@@ -747,8 +791,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_comment.js.html#l175"><code>lib\comment.js:175</code></a>
         
         </p>
 
@@ -759,7 +807,7 @@
 
     <div class="description">
         <p>The comment&#39;s type.
-This string value specifies a <code>CommentType</code> constant or a made up value like &quot;registration&quot;.</p>
+This string value specifies a <code>akismet.CommentType</code> constant or a made up value like <code>&quot;registration&quot;</code>.</p>
 
     </div>
 

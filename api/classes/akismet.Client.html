@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Client - Akismet.js</title>
+    <title>akismet.Client - Akismet.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -15,11 +15,11 @@
     <div id="hd" class="yui3-g header">
         <div class="yui3-u-3-4">
             
-                <h1><img src="http://api.belin.io/akismet.js/favicon.ico" title="Akismet.js"></h1>
+                <h1><img src="http://dev.belin.io/akismet.js/favicon.ico" title="Akismet.js"></h1>
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.1.0</em>
+            <em>API Docs for: 0.2.1</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -41,15 +41,19 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="../classes/Author.html">Author</a></li>
+                <li><a href="../classes/akismet.Author.html">akismet.Author</a></li>
             
-                <li><a href="../classes/Client.html">Client</a></li>
+                <li><a href="../classes/akismet.Client.html">akismet.Client</a></li>
             
-                <li><a href="../classes/Comment.html">Comment</a></li>
+                <li><a href="../classes/akismet.Comment.html">akismet.Comment</a></li>
             
-                <li><a href="../classes/CommentType.html">CommentType</a></li>
+                <li><a href="../classes/akismet.CommentType.html">akismet.CommentType</a></li>
             
-                <li><a href="../classes/EndPoints.html">EndPoints</a></li>
+                <li><a href="../classes/akismet.EndPoints.html">akismet.EndPoints</a></li>
+            
+                <li><a href="../classes/akismet.HTTPHeaders.html">akismet.HTTPHeaders</a></li>
+            
+                <li><a href="../classes/akismet.Server.html">akismet.Server</a></li>
             
             </ul>
 
@@ -58,6 +62,10 @@
                 <li><a href="../modules/client.html">client</a></li>
             
                 <li><a href="../modules/comment.html">comment</a></li>
+            
+                <li><a href="../modules/enums.html">enums</a></li>
+            
+                <li><a href="../modules/server.html">server</a></li>
             
             </ul>
         </div>
@@ -94,12 +102,16 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>Client Class</h1>
+                        <h1>akismet.Client Class</h1>
 <div class="box meta">
     
 
     
 
+    
+        <div class="foundat">
+            Defined in: <a href="../files/lib_client.js.html#l13"><code>lib\client.js:13</code></a>
+        </div>
     
 
     
@@ -121,8 +133,8 @@
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_Client" class="method item">
-    <h3 class="name"><code>Client</code></h3>
+        <div id="method_akismet.Client" class="method item">
+    <h3 class="name"><code>akismet.Client</code></h3>
 
     
         <div class="args">
@@ -170,8 +182,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_client.js.html#l13"><code>lib\client.js:13</code></a>
         
         </p>
 
@@ -343,14 +359,23 @@
                             </li>
                         
                             <li class="index-item property">
-                                <a href="#property_userAgent">userAgent</a>
+                                <a href="#property_DEFAULT_SERVICE">DEFAULT_SERVICE</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_serviceUrl">serviceUrl</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item property">
-                                <a href="#property_useSecureRequests">useSecureRequests</a>
+                                <a href="#property_userAgent">userAgent</a>
 
                                 
                                 
@@ -423,8 +448,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_client.js.html#l175"><code>lib\client.js:175</code></a>
         
         </p>
 
@@ -454,7 +483,7 @@
                     
 
                     <div class="param-description">
-                        <p>URL of the end point to query.</p>
+                        <p>The URL of the end point to query.</p>
 
                     </div>
 
@@ -470,7 +499,7 @@
                     
 
                     <div class="param-description">
-                        <p>Fields describing the query body.</p>
+                        <p>The fields describing the query body.</p>
 
                     </div>
 
@@ -516,6 +545,12 @@
             
                 <li class="arg">
                     
+                        <code>comment</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
                         <code>callback</code>
                     
                 </li>
@@ -546,8 +581,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_client.js.html#l68"><code>lib\client.js:68</code></a>
         
         </p>
 
@@ -567,6 +606,22 @@
             <h4>Parameters:</h4>
 
             <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">comment</code>
+                        <span class="type"><a href="../classes/akismet.Comment.html" class="crosslink">akismet.Comment</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The comment to be checked.</p>
+
+                    </div>
+
+                    
+                </li>
             
                 <li class="param">
                     
@@ -607,7 +662,13 @@
             
                 <li class="arg">
                     
-                        <code>callback</code>
+                        <code>comment</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[callback]</code>
                     
                 </li>
             
@@ -637,8 +698,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_client.js.html#l97"><code>lib\client.js:97</code></a>
         
         </p>
 
@@ -661,8 +726,25 @@
             
                 <li class="param">
                     
-                        <code class="param-name">callback</code>
+                        <code class="param-name">comment</code>
+                        <span class="type"><a href="../classes/akismet.Comment.html" class="crosslink">akismet.Comment</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The comment to be submitted.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[callback]</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
@@ -694,7 +776,13 @@
             
                 <li class="arg">
                     
-                        <code>callback</code>
+                        <code>comment</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[callback]</code>
                     
                 </li>
             
@@ -724,8 +812,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_client.js.html#l121"><code>lib\client.js:121</code></a>
         
         </p>
 
@@ -748,8 +840,25 @@
             
                 <li class="param">
                     
-                        <code class="param-name">callback</code>
+                        <code class="param-name">comment</code>
+                        <span class="type"><a href="../classes/akismet.Comment.html" class="crosslink">akismet.Comment</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The comment to be submitted.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[callback]</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
 
                     
@@ -803,8 +912,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_client.js.html#l145"><code>lib\client.js:145</code></a>
         
         </p>
 
@@ -880,8 +993,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_client.js.html#l159"><code>lib\client.js:159</code></a>
         
         </p>
 
@@ -958,8 +1075,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_client.js.html#l23"><code>lib\client.js:23</code></a>
         
         </p>
 
@@ -999,8 +1120,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_client.js.html#l30"><code>lib\client.js:30</code></a>
         
         </p>
 
@@ -1014,6 +1139,102 @@
 
     </div>
 
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_DEFAULT_SERVICE" class="property item">
+    <h3 class="name"><code>DEFAULT_SERVICE</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+        <span class="flag final">final</span>
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_client.js.html#l59"><code>lib\client.js:59</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The host of the default remote service.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_serviceUrl" class="property item">
+    <h3 class="name"><code>serviceUrl</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_client.js.html#l45"><code>lib\client.js:45</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>The URL of the remote service.</p>
+
+    </div>
+
+    
+        <p><strong>Default:</strong> &quot;https://rest.akismet.com&quot;</p>
     
 
     
@@ -1040,8 +1261,12 @@
                 
                 <p>
                 
+                Defined in
+                
             
         
+        
+        <a href="../files/lib_client.js.html#l37"><code>lib\client.js:37</code></a>
         
         </p>
 
@@ -1056,49 +1281,6 @@ If possible, the user agent string should always have the following format: <cod
 
     </div>
 
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_useSecureRequests" class="property item">
-    <h3 class="name"><code>useSecureRequests</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean" class="crosslink external" target="_blank">Boolean</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-            
-        
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>A value indicating whether to use secure requests when querying the service database.</p>
-
-    </div>
-
-    
-        <p><strong>Default:</strong> false</p>
     
 
     

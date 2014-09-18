@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>enums - Akismet.js</title>
+    <title>lib\enums.js - Akismet.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -102,56 +102,102 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>enums Module</h1>
-<div class="box clearfix meta">
-    
+                        <h1 class="file-heading">File: lib\enums.js</h1>
 
-    
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * Contains enumerations that define commonly-used values.
+ * @module enums
+ */
+&#x27;use strict&#x27;;
 
-    
-        <div class="foundat">
-            Defined in: <a href="../files/lib_enums.js.html#l51"><code>lib\enums.js:51</code></a>
-        </div>
-    
+/**
+ * Provides the URLs corresponding to the service end points.
+ * @class akismet.EndPoints
+ * @static
+ */
+var EndPoints={
 
-    
-</div>
+  /**
+   * URL of the [comment check](https://akismet.com/development/api/#comment-check) end point.
+   * @property CHECK_COMMENT
+   * @type String
+   * @static
+   * @final
+   */
+  CHECK_COMMENT: &#x27;/1.1/comment-check&#x27;,
 
+  /**
+   * URL of the [submit ham](https://akismet.com/development/api/#submit-ham) end point.
+   * @property SUBMIT_HAM
+   * @type String
+   * @static
+   * @final
+   */
+  SUBMIT_HAM: &#x27;/1.1/submit-ham&#x27;,
 
+  /**
+   * URL of the [submit spam](https://akismet.com/development/api/#submit-spam) end point.
+   * @property SUBMIT_SPAM
+   * @type String
+   * @static
+   * @final
+   */
+  SUBMIT_SPAM: &#x27;/1.1/submit-spam&#x27;,
 
-<div class="box intro">
-    <p>Contains enumerations that define commonly-used values.</p>
+  /**
+   * URL of the [key verification](https://akismet.com/development/api/#verify-key) end point.
+   * @property VERIFY_KEY
+   * @type String
+   * @static
+   * @final
+   */
+  VERIFY_KEY: &#x27;/1.1/verify-key&#x27;
+};
 
-</div>
+/**
+ * A collection of custom HTTP headers and their values.
+ * @class akismet.HTTPHeaders
+ * @static
+ */
+var HTTPHeaders={
 
+  /**
+   * Header corresponding to [Akismet](https://akismet.com) debug messages.
+   * @property X_AKISMET_DEBUG_HELP
+   * @type String
+   * @static
+   * @final
+   */
+  X_AKISMET_DEBUG_HELP: &#x27;x-akismet-debug-help&#x27;,
 
+  /**
+   * Header used to identify an AJAX request.
+   * @property X_REQUESTED_WITH
+   * @type String
+   * @static
+   * @final
+   */
+  X_REQUESTED_WITH: &#x27;x-requested-with&#x27;,
 
-<div class="yui3-g">
-    <div class="yui3-u-1-2">
-        
-            <p>This module provides the following classes:</p>
+  /**
+   * Custom header corresponding to the user agent string sent by AJAX clients.
+   * @property X_USER_AGENT
+   * @type String
+   * @static
+   * @final
+   */
+  X_USER_AGENT: &#x27;x-user-agent&#x27;
+};
 
-            <ul class="module-classes">
-            
-                <li class="module-class">
-                    <a href="../classes/akismet.EndPoints.html">
-                        akismet.EndPoints
-                    </a>
-                </li>
-            
-                <li class="module-class">
-                    <a href="../classes/akismet.HTTPHeaders.html">
-                        akismet.HTTPHeaders
-                    </a>
-                </li>
-            
-            </ul>
-        
-    </div>
+// Public interface.
+module.exports={
+  EndPoints: EndPoints,
+  HTTPHeaders: HTTPHeaders
+};
 
-    <div class="yui3-u-1-2">
-        
-    </div>
+    </pre>
 </div>
 
                     </div>

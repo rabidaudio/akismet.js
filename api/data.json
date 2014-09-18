@@ -1,33 +1,55 @@
 {
     "project": {
-        "logo": "http://api.belin.io/akismet.js/favicon.ico",
+        "logo": "http://dev.belin.io/akismet.js/favicon.ico",
         "name": "Akismet.js",
-        "url": "https://npmjs.org/package/akismet-js",
+        "url": "https://www.npmjs.org/package/akismet-js",
         "description": "Prevent comment spam using Akismet service.",
-        "version": "0.1.0"
+        "version": "0.2.1"
     },
     "files": {
-        "lib/client.js": {
-            "name": "lib/client.js",
+        "lib\\client.js": {
+            "name": "lib\\client.js",
             "modules": {
                 "client": 1
             },
             "classes": {
-                "EndPoints": 1,
-                "Client": 1
+                "akismet.Client": 1
             },
             "fors": {},
             "namespaces": {}
         },
-        "lib/comment.js": {
-            "name": "lib/comment.js",
+        "lib\\comment.js": {
+            "name": "lib\\comment.js",
             "modules": {
                 "comment": 1
             },
             "classes": {
-                "Author": 1,
-                "Comment": 1,
-                "CommentType": 1
+                "akismet.CommentType": 1,
+                "akismet.Author": 1,
+                "akismet.Comment": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\enums.js": {
+            "name": "lib\\enums.js",
+            "modules": {
+                "enums": 1
+            },
+            "classes": {
+                "akismet.EndPoints": 1,
+                "akismet.HTTPHeaders": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib\\server.js": {
+            "name": "lib\\server.js",
+            "modules": {
+                "server": 1
+            },
+            "classes": {
+                "akismet.Server": 1
             },
             "fors": {},
             "namespaces": {}
@@ -38,36 +60,62 @@
             "name": "client",
             "submodules": {},
             "classes": {
-                "EndPoints": 1,
-                "Client": 1
+                "akismet.Client": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "lib/client.js",
-            "line": 55,
-            "description": "Contains classes that provide a simple programming interface for querying [Akismet](https://akismet.com) service."
+            "file": "lib\\client.js",
+            "line": 13,
+            "description": "Contains classes that provide a simple programming interface for querying the [Akismet](https://akismet.com) service."
         },
         "comment": {
             "name": "comment",
             "submodules": {},
             "classes": {
-                "Author": 1,
-                "Comment": 1,
-                "CommentType": 1
+                "akismet.CommentType": 1,
+                "akismet.Author": 1,
+                "akismet.Comment": 1
             },
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "lib/comment.js",
-            "line": 216,
-            "description": "Provides classes describing a comment."
+            "file": "lib\\comment.js",
+            "line": 139,
+            "description": "Provides classes describing a comment and its author."
+        },
+        "enums": {
+            "name": "enums",
+            "submodules": {},
+            "classes": {
+                "akismet.EndPoints": 1,
+                "akismet.HTTPHeaders": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib\\enums.js",
+            "line": 51,
+            "description": "Contains enumerations that define commonly-used values."
+        },
+        "server": {
+            "name": "server",
+            "submodules": {},
+            "classes": {
+                "akismet.Server": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib\\server.js",
+            "line": 19,
+            "description": "Provides an HTTP server for relaying queries from clients to the [Akismet](https://akismet.com) service."
         }
     },
     "classes": {
-        "EndPoints": {
-            "name": "EndPoints",
-            "shortname": "EndPoints",
+        "akismet.Client": {
+            "name": "akismet.Client",
+            "shortname": "akismet.Client",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -75,23 +123,8 @@
             "extension_for": [],
             "module": "client",
             "namespace": "",
-            "file": "lib/client.js",
-            "line": 11,
-            "description": "Provides the URLs corresponding to the service end points.",
-            "static": 1
-        },
-        "Client": {
-            "name": "Client",
-            "shortname": "Client",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "client",
-            "namespace": "",
-            "file": "lib/client.js",
-            "line": 55,
+            "file": "lib\\client.js",
+            "line": 13,
             "description": "Provides the base class for clients that submit comments to [Akismet](https://akismet.com) service.",
             "is_constructor": 1,
             "params": [
@@ -113,9 +146,9 @@
                 }
             ]
         },
-        "Author": {
-            "name": "Author",
-            "shortname": "Author",
+        "akismet.CommentType": {
+            "name": "akismet.CommentType",
+            "shortname": "akismet.CommentType",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -123,155 +156,177 @@
             "extension_for": [],
             "module": "comment",
             "namespace": "",
-            "file": "lib/comment.js",
+            "file": "lib\\comment.js",
             "line": 7,
-            "description": "Represents the author of a `Comment`.",
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "options",
-                    "description": "An object specifying values used to initialize this instance.",
-                    "type": "Object",
-                    "optional": true
-                }
-            ]
-        },
-        "Comment": {
-            "name": "Comment",
-            "shortname": "Comment",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "comment",
-            "namespace": "",
-            "file": "lib/comment.js",
-            "line": 104,
-            "description": "Represents a comment submitted by an `Author`.",
-            "is_constructor": 1,
-            "params": [
-                {
-                    "name": "options",
-                    "description": "An object specifying values used to initialize this instance.",
-                    "type": "Object",
-                    "optional": true
-                }
-            ]
-        },
-        "CommentType": {
-            "name": "CommentType",
-            "shortname": "CommentType",
-            "classitems": [],
-            "plugins": [],
-            "extensions": [],
-            "plugin_for": [],
-            "extension_for": [],
-            "module": "comment",
-            "namespace": "",
-            "file": "lib/comment.js",
-            "line": 216,
-            "description": "Specifies the type of a `Comment`.",
+            "description": "Specifies the type of a comment.",
             "static": 1
+        },
+        "akismet.Author": {
+            "name": "akismet.Author",
+            "shortname": "akismet.Author",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "comment",
+            "namespace": "",
+            "file": "lib\\comment.js",
+            "line": 42,
+            "description": "Represents the author of a comment.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "An object specifying values used to initialize this instance.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ]
+        },
+        "akismet.Comment": {
+            "name": "akismet.Comment",
+            "shortname": "akismet.Comment",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "comment",
+            "namespace": "",
+            "file": "lib\\comment.js",
+            "line": 139,
+            "description": "Represents a comment submitted by an author.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "An object specifying values used to initialize this instance.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ]
+        },
+        "akismet.EndPoints": {
+            "name": "akismet.EndPoints",
+            "shortname": "akismet.EndPoints",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "enums",
+            "namespace": "",
+            "file": "lib\\enums.js",
+            "line": 7,
+            "description": "Provides the URLs corresponding to the service end points.",
+            "static": 1
+        },
+        "akismet.HTTPHeaders": {
+            "name": "akismet.HTTPHeaders",
+            "shortname": "akismet.HTTPHeaders",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "enums",
+            "namespace": "",
+            "file": "lib\\enums.js",
+            "line": 51,
+            "description": "A collection of custom HTTP headers and their values.",
+            "static": 1
+        },
+        "akismet.Server": {
+            "name": "akismet.Server",
+            "shortname": "akismet.Server",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "server",
+            "namespace": "",
+            "file": "lib\\server.js",
+            "line": 19,
+            "description": "An HTTP server that acts as a proxy between clients and the [Akismet](https://akismet.com) service.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "An object specifying values used to initialize this instance.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ]
         }
     },
     "classitems": [
         {
-            "file": "lib/client.js",
-            "line": 18,
-            "description": "URL of the [comment check](https://akismet.com/development/api/#comment-check) end point.",
-            "itemtype": "property",
-            "name": "CHECK_COMMENT",
-            "type": "String",
-            "static": 1,
-            "final": 1,
-            "class": "EndPoints",
-            "module": "client"
-        },
-        {
-            "file": "lib/client.js",
-            "line": 27,
-            "description": "URL of the [submit ham](https://akismet.com/development/api/#submit-ham) end point.",
-            "itemtype": "property",
-            "name": "SUBMIT_HAM",
-            "type": "String",
-            "static": 1,
-            "final": 1,
-            "class": "EndPoints",
-            "module": "client"
-        },
-        {
-            "file": "lib/client.js",
-            "line": 36,
-            "description": "URL of the [submit spam](https://akismet.com/development/api/#submit-spam) end point.",
-            "itemtype": "property",
-            "name": "SUBMIT_SPAM",
-            "type": "String",
-            "static": 1,
-            "final": 1,
-            "class": "EndPoints",
-            "module": "client"
-        },
-        {
-            "file": "lib/client.js",
-            "line": 45,
-            "description": "URL of the [key verification](https://akismet.com/development/api/#verify-key) end point.",
-            "itemtype": "property",
-            "name": "VERIFY_KEY",
-            "type": "String",
-            "static": 1,
-            "final": 1,
-            "class": "EndPoints",
-            "module": "client"
-        },
-        {
-            "file": "lib/client.js",
-            "line": 65,
+            "file": "lib\\client.js",
+            "line": 23,
             "description": "The Akismet API key.",
             "itemtype": "property",
             "name": "apiKey",
             "type": "String",
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
-            "file": "lib/client.js",
-            "line": 72,
+            "file": "lib\\client.js",
+            "line": 30,
             "description": "The front page or home URL of the instance making requests.",
             "itemtype": "property",
             "name": "blog",
             "type": "String",
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
-            "file": "lib/client.js",
-            "line": 79,
+            "file": "lib\\client.js",
+            "line": 37,
             "description": "The user agent string to use when making requests.\nIf possible, the user agent string should always have the following format: `Application Name/Version | Plugin Name/Version`.",
             "itemtype": "property",
             "name": "userAgent",
             "type": "String",
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
-            "file": "lib/client.js",
-            "line": 87,
-            "description": "A value indicating whether to use secure requests when querying the service database.",
+            "file": "lib\\client.js",
+            "line": 45,
+            "description": "The URL of the remote service.",
             "itemtype": "property",
-            "name": "useSecureRequests",
-            "type": "Boolean",
-            "default": "false",
-            "class": "Client",
+            "name": "serviceUrl",
+            "type": "String",
+            "default": "\"https://rest.akismet.com\"",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
-            "file": "lib/client.js",
-            "line": 101,
+            "file": "lib\\client.js",
+            "line": 59,
+            "description": "The host of the default remote service.",
+            "itemtype": "property",
+            "name": "DEFAULT_SERVICE",
+            "type": "String",
+            "static": 1,
+            "final": 1,
+            "class": "akismet.Client",
+            "module": "client"
+        },
+        {
+            "file": "lib\\client.js",
+            "line": 68,
             "description": "Checks the specified comment against the service database, and returns a value indicating whether it is spam.",
             "itemtype": "method",
             "name": "checkComment",
             "params": [
+                {
+                    "name": "comment",
+                    "description": "The comment to be checked.",
+                    "type": "akismet.Comment"
+                },
                 {
                     "name": "callback",
                     "description": "The callback to invoke at the end. It is passed two arguments:\n- `error` containing the error that occurred, if any.\n- `isSpam` indicating whether the specified comment is spam.",
@@ -279,46 +334,58 @@
                 }
             ],
             "async": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
-            "file": "lib/client.js",
-            "line": 122,
+            "file": "lib\\client.js",
+            "line": 97,
             "description": "Submits the specified comment that was incorrectly marked as spam but should not have been.",
             "itemtype": "method",
             "name": "submitHam",
             "params": [
                 {
+                    "name": "comment",
+                    "description": "The comment to be submitted.",
+                    "type": "akismet.Comment"
+                },
+                {
                     "name": "callback",
                     "description": "The callback to invoke at the end. It is passed one argument `error` containing the error that occurred, if any.",
-                    "type": "Function"
+                    "type": "Function",
+                    "optional": true
                 }
             ],
             "async": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
-            "file": "lib/client.js",
-            "line": 138,
+            "file": "lib\\client.js",
+            "line": 121,
             "description": "Submits the specified comment that was not marked as spam but should have been.",
             "itemtype": "method",
             "name": "submitSpam",
             "params": [
                 {
+                    "name": "comment",
+                    "description": "The comment to be submitted.",
+                    "type": "akismet.Comment"
+                },
+                {
                     "name": "callback",
                     "description": "The callback to invoke at the end. It is passed one argument `error` containing the error that occurred, if any.",
-                    "type": "Function"
+                    "type": "Function",
+                    "optional": true
                 }
             ],
             "async": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
-            "file": "lib/client.js",
-            "line": 154,
+            "file": "lib\\client.js",
+            "line": 145,
             "description": "Returns a string representation of this object.",
             "itemtype": "method",
             "name": "toString",
@@ -326,12 +393,12 @@
                 "description": "The string representation of this object.",
                 "type": "String"
             },
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
-            "file": "lib/client.js",
-            "line": 167,
+            "file": "lib\\client.js",
+            "line": 159,
             "description": "Checks the API key against the service database, and returns a value indicating whether it is valid.",
             "itemtype": "method",
             "name": "verifyKey",
@@ -343,24 +410,24 @@
                 }
             ],
             "async": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
-            "file": "lib/client.js",
-            "line": 187,
+            "file": "lib\\client.js",
+            "line": 175,
             "description": "Queries the service by posting the specified fields to a given end point, and returns the response as a string.",
             "itemtype": "method",
             "name": "_queryService",
             "params": [
                 {
                     "name": "endPoint",
-                    "description": "URL of the end point to query.",
+                    "description": "The URL of the end point to query.",
                     "type": "String"
                 },
                 {
                     "name": "fields",
-                    "description": "Fields describing the query body.",
+                    "description": "The fields describing the query body.",
                     "type": "Object"
                 },
                 {
@@ -372,83 +439,119 @@
             "access": "private",
             "tagname": "",
             "async": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
-            "file": "lib/comment.js",
-            "line": 15,
+            "file": "lib\\comment.js",
+            "line": 14,
+            "description": "A standard comment.",
+            "itemtype": "property",
+            "name": "COMMENT",
+            "type": "String",
+            "static": 1,
+            "final": 1,
+            "class": "akismet.CommentType",
+            "module": "comment"
+        },
+        {
+            "file": "lib\\comment.js",
+            "line": 23,
+            "description": "A [pingback](https://en.wikipedia.org/wiki/Pingback) comment.",
+            "itemtype": "property",
+            "name": "PINGBACK",
+            "type": "String",
+            "static": 1,
+            "final": 1,
+            "class": "akismet.CommentType",
+            "module": "comment"
+        },
+        {
+            "file": "lib\\comment.js",
+            "line": 32,
+            "description": "A [trackback](https://en.wikipedia.org/wiki/Trackback) comment.",
+            "itemtype": "property",
+            "name": "TRACKBACK",
+            "type": "String",
+            "static": 1,
+            "final": 1,
+            "class": "akismet.CommentType",
+            "module": "comment"
+        },
+        {
+            "file": "lib\\comment.js",
+            "line": 50,
             "description": "The author's mail address.",
             "itemtype": "property",
             "name": "email",
             "type": "String",
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 22,
+            "file": "lib\\comment.js",
+            "line": 57,
             "description": "The author's IP address.",
             "itemtype": "property",
             "name": "ipAddress",
             "type": "String",
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 29,
+            "file": "lib\\comment.js",
+            "line": 64,
             "description": "The author's name.",
             "itemtype": "property",
             "name": "name",
             "type": "String",
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 36,
+            "file": "lib\\comment.js",
+            "line": 71,
             "description": "The URL of the author's website.",
             "itemtype": "property",
             "name": "url",
             "type": "String",
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 43,
+            "file": "lib\\comment.js",
+            "line": 78,
             "description": "The author's user agent, that is the string identifying the Web browser used to submit comments.",
             "itemtype": "property",
             "name": "userAgent",
             "type": "String",
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 56,
-            "description": "Creates a new `Author` from the specified JSON string.",
+            "file": "lib\\comment.js",
+            "line": 91,
+            "description": "Creates a new author from the specified JSON string.",
             "itemtype": "method",
             "name": "fromJSON",
             "params": [
                 {
                     "name": "json",
-                    "description": "A JSON string, or an already parsed object, representing an `Author`.",
+                    "description": "A JSON string, or an already parsed object, representing an author.",
                     "type": "Object|String"
                 }
             ],
             "return": {
                 "description": "The instance corresponding to the specified JSON object, or `null` if a parsing error occurred.",
-                "type": "Author"
+                "type": "akismet.Author"
             },
             "static": 1,
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 80,
+            "file": "lib\\comment.js",
+            "line": 115,
             "description": "Converts this object to a string in JSON format.",
             "itemtype": "method",
             "name": "toJSON",
@@ -456,12 +559,12 @@
                 "description": "The JSON representation of this object.",
                 "type": "String"
             },
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 95,
+            "file": "lib\\comment.js",
+            "line": 130,
             "description": "Returns a string representation of this object.",
             "itemtype": "method",
             "name": "toString",
@@ -469,69 +572,69 @@
                 "description": "The string representation of this object.",
                 "type": "String"
             },
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 112,
+            "file": "lib\\comment.js",
+            "line": 147,
             "description": "The comment's author.",
             "itemtype": "property",
             "name": "author",
-            "type": "Author",
-            "class": "Comment",
+            "type": "akismet.Author",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 119,
+            "file": "lib\\comment.js",
+            "line": 154,
             "description": "The comment's content.",
             "itemtype": "property",
             "name": "content",
             "type": "String",
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 126,
+            "file": "lib\\comment.js",
+            "line": 161,
             "description": "The permanent location of the entry the comment is submitted to.",
             "itemtype": "property",
             "name": "permalink",
             "type": "String",
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 133,
+            "file": "lib\\comment.js",
+            "line": 168,
             "description": "The URL of the webpage that linked to the entry being requested.",
             "itemtype": "property",
             "name": "referrer",
             "type": "String",
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 140,
-            "description": "The comment's type.\nThis string value specifies a `CommentType` constant or a made up value like \"registration\".",
+            "file": "lib\\comment.js",
+            "line": 175,
+            "description": "The comment's type.\nThis string value specifies a `akismet.CommentType` constant or a made up value like `\"registration\"`.",
             "itemtype": "property",
             "name": "type",
             "type": "String",
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 154,
-            "description": "Creates a new `Comment` from the specified JSON string.",
+            "file": "lib\\comment.js",
+            "line": 189,
+            "description": "Creates a new comment from the specified JSON string.",
             "itemtype": "method",
             "name": "fromJSON",
             "params": [
                 {
                     "name": "json",
-                    "description": "A JSON string, or an already parsed object, representing an `Comment`.",
+                    "description": "A JSON string, or an already parsed object, representing a comment.",
                     "type": "Object|String"
                 }
             ],
@@ -540,12 +643,12 @@
                 "type": "Comment"
             },
             "static": 1,
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 188,
+            "file": "lib\\comment.js",
+            "line": 223,
             "description": "Converts this object to a string in JSON format.",
             "itemtype": "method",
             "name": "toJSON",
@@ -553,12 +656,12 @@
                 "description": "The JSON representation of this object.",
                 "type": "String"
             },
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 207,
+            "file": "lib\\comment.js",
+            "line": 242,
             "description": "Returns a string representation of this object.",
             "itemtype": "method",
             "name": "toString",
@@ -566,44 +669,456 @@
                 "description": "The string representation of this object.",
                 "type": "String"
             },
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
-            "file": "lib/comment.js",
-            "line": 223,
-            "description": "A standard comment.",
+            "file": "lib\\enums.js",
+            "line": 14,
+            "description": "URL of the [comment check](https://akismet.com/development/api/#comment-check) end point.",
             "itemtype": "property",
-            "name": "COMMENT",
+            "name": "CHECK_COMMENT",
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "CommentType",
-            "module": "comment"
+            "class": "akismet.EndPoints",
+            "module": "enums"
         },
         {
-            "file": "lib/comment.js",
-            "line": 232,
-            "description": "A [pingback](https://en.wikipedia.org/wiki/Pingback) comment.",
+            "file": "lib\\enums.js",
+            "line": 23,
+            "description": "URL of the [submit ham](https://akismet.com/development/api/#submit-ham) end point.",
             "itemtype": "property",
-            "name": "PINGBACK",
+            "name": "SUBMIT_HAM",
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "CommentType",
-            "module": "comment"
+            "class": "akismet.EndPoints",
+            "module": "enums"
         },
         {
-            "file": "lib/comment.js",
-            "line": 241,
-            "description": "A [trackback](https://en.wikipedia.org/wiki/Trackback) comment.",
+            "file": "lib\\enums.js",
+            "line": 32,
+            "description": "URL of the [submit spam](https://akismet.com/development/api/#submit-spam) end point.",
             "itemtype": "property",
-            "name": "TRACKBACK",
+            "name": "SUBMIT_SPAM",
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "CommentType",
-            "module": "comment"
+            "class": "akismet.EndPoints",
+            "module": "enums"
+        },
+        {
+            "file": "lib\\enums.js",
+            "line": 41,
+            "description": "URL of the [key verification](https://akismet.com/development/api/#verify-key) end point.",
+            "itemtype": "property",
+            "name": "VERIFY_KEY",
+            "type": "String",
+            "static": 1,
+            "final": 1,
+            "class": "akismet.EndPoints",
+            "module": "enums"
+        },
+        {
+            "file": "lib\\enums.js",
+            "line": 58,
+            "description": "Header corresponding to [Akismet](https://akismet.com) debug messages.",
+            "itemtype": "property",
+            "name": "X_AKISMET_DEBUG_HELP",
+            "type": "String",
+            "static": 1,
+            "final": 1,
+            "class": "akismet.HTTPHeaders",
+            "module": "enums"
+        },
+        {
+            "file": "lib\\enums.js",
+            "line": 67,
+            "description": "Header used to identify an AJAX request.",
+            "itemtype": "property",
+            "name": "X_REQUESTED_WITH",
+            "type": "String",
+            "static": 1,
+            "final": 1,
+            "class": "akismet.HTTPHeaders",
+            "module": "enums"
+        },
+        {
+            "file": "lib\\enums.js",
+            "line": 76,
+            "description": "Custom header corresponding to the user agent string sent by AJAX clients.",
+            "itemtype": "property",
+            "name": "X_USER_AGENT",
+            "type": "String",
+            "static": 1,
+            "final": 1,
+            "class": "akismet.HTTPHeaders",
+            "module": "enums"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 28,
+            "description": "Emitted when the server closes.",
+            "itemtype": "event",
+            "name": "close",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 33,
+            "description": "Emitted each time the server experiences an error.",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "err",
+                    "description": "The emitted error event.",
+                    "type": "Error"
+                }
+            ],
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 39,
+            "description": "Emitted when the server has been bound after calling `listen` method.",
+            "itemtype": "event",
+            "name": "listening",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 44,
+            "description": "Emitted each time there is a request.",
+            "itemtype": "event",
+            "name": "request",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request sent by the client.",
+                    "type": "http.IncomingMessage"
+                }
+            ],
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 50,
+            "description": "The underlying [Express](http://expressjs.com/api.html#express) application used for routing requests.",
+            "itemtype": "property",
+            "name": "_express",
+            "type": "Function",
+            "access": "private",
+            "tagname": "",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 61,
+            "description": "The server settings.",
+            "itemtype": "property",
+            "name": "_options",
+            "type": "Object",
+            "access": "private",
+            "tagname": "",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 69,
+            "description": "The underlying HTTP(S) service listening for requests.",
+            "itemtype": "property",
+            "name": "_httpService",
+            "type": "{http.Server|https.Server}",
+            "access": "private",
+            "tagname": "",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 81,
+            "description": "The host that the server is listening on.",
+            "itemtype": "property",
+            "name": "host",
+            "type": "String",
+            "final": 1,
+            "default": "\"0.0.0.0\"",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 94,
+            "description": "The port that the server is listening on.",
+            "itemtype": "property",
+            "name": "port",
+            "type": "Number",
+            "final": 1,
+            "default": "3000",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 107,
+            "description": "The URL to redirect the user when a request is unhandled.\nIf this property is `null`, a 404 status code is sent instead of redirecting.",
+            "itemtype": "property",
+            "name": "redirectUrl",
+            "type": "String",
+            "final": 1,
+            "default": "null",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 121,
+            "description": "Checks a comment against the service database, and prints a value indicating whether it is spam.",
+            "itemtype": "method",
+            "name": "checkComment",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request sent by a client.",
+                    "type": "express.Request"
+                },
+                {
+                    "name": "res",
+                    "description": "The response sent by the server.",
+                    "type": "express.Response"
+                }
+            ],
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 136,
+            "description": "Stops the server from accepting new connections.",
+            "itemtype": "method",
+            "name": "close",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "A callback to invoke when server is finally closed.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "async": 1,
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 153,
+            "description": "Begin accepting connections.",
+            "itemtype": "method",
+            "name": "listen",
+            "params": [
+                {
+                    "name": "port",
+                    "description": "The port that the server should run on.",
+                    "type": "Number",
+                    "optional": true
+                },
+                {
+                    "name": "host",
+                    "description": "The host that the server should run on.",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "callback",
+                    "description": "A function to invoke when server is ready to process requests.",
+                    "type": "Function",
+                    "optional": true
+                }
+            ],
+            "async": 1,
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 176,
+            "description": "Submits a `Comment` that was incorrectly marked as spam but should not have been.",
+            "itemtype": "method",
+            "name": "submitHam",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request sent by a client.",
+                    "type": "express.Request"
+                },
+                {
+                    "name": "res",
+                    "description": "The response sent by the server.",
+                    "type": "express.Response"
+                }
+            ],
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 191,
+            "description": "Submits a `Comment` that was not marked as spam but should have been.",
+            "itemtype": "method",
+            "name": "submitSpam",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request sent by a client.",
+                    "type": "express.Request"
+                },
+                {
+                    "name": "res",
+                    "description": "The response sent by the server.",
+                    "type": "express.Response"
+                }
+            ],
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 206,
+            "description": "Checks an API key against the service database, and prints a value indicating whether it is a valid key.",
+            "itemtype": "method",
+            "name": "verifyKey",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request sent by a client.",
+                    "type": "express.Request"
+                },
+                {
+                    "name": "res",
+                    "description": "The response sent by the server. The response sent by the server.",
+                    "type": "express.Response"
+                }
+            ],
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 220,
+            "description": "Adds [CORS](http://www.w3.org/TR/cors) headers to the response.",
+            "itemtype": "method",
+            "name": "_addCORSHeaders",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request sent by a client.",
+                    "type": "express.Request"
+                },
+                {
+                    "name": "res",
+                    "description": "The response sent by the server.",
+                    "type": "express.Response"
+                },
+                {
+                    "name": "next",
+                    "description": "The callback used to pass the request off to the next middleware.",
+                    "type": "Function"
+                }
+            ],
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 237,
+            "description": "Processes the specified request body.",
+            "itemtype": "method",
+            "name": "_processRequest",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request sent by a client.",
+                    "type": "express.Request"
+                },
+                {
+                    "name": "res",
+                    "description": "The response sent by the server.",
+                    "type": "express.Response"
+                },
+                {
+                    "name": "next",
+                    "description": "The callback used to pass the request off to the next middleware.",
+                    "type": "Function"
+                }
+            ],
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 267,
+            "description": "Registers the middleware.",
+            "itemtype": "method",
+            "name": "_registerMiddleware",
+            "access": "private",
+            "tagname": "",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 278,
+            "description": "Registers the route table.",
+            "itemtype": "method",
+            "name": "_registerRoutes",
+            "access": "private",
+            "tagname": "",
+            "class": "akismet.Server",
+            "module": "server"
+        },
+        {
+            "file": "lib\\server.js",
+            "line": 300,
+            "description": "Sends the specified response body.",
+            "itemtype": "method",
+            "name": "_sendResponse",
+            "params": [
+                {
+                    "name": "res",
+                    "description": "The response sent by the server.",
+                    "type": "express.Response"
+                },
+                {
+                    "name": "body",
+                    "description": "The response body to send to the client.",
+                    "type": "String"
+                },
+                {
+                    "name": "error",
+                    "description": "An error message to add to the response headers as `akismet.HTTPHeaders.X_AKISMET_DEBUG_HELP`.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "static": 1,
+            "access": "private",
+            "tagname": "",
+            "class": "akismet.Server",
+            "module": "server"
         }
     ],
     "warnings": []
