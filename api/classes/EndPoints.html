@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>akismet.CommentType - Akismet.js</title>
+    <title>EndPoints - Akismet.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.2.1</em>
+            <em>API Docs for: 0.3.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -41,19 +41,21 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="../classes/akismet.Author.html">akismet.Author</a></li>
+                <li><a href="../classes/Author.html">Author</a></li>
             
-                <li><a href="../classes/akismet.Client.html">akismet.Client</a></li>
+                <li><a href="../classes/Blog.html">Blog</a></li>
             
-                <li><a href="../classes/akismet.Comment.html">akismet.Comment</a></li>
+                <li><a href="../classes/Client.html">Client</a></li>
             
-                <li><a href="../classes/akismet.CommentType.html">akismet.CommentType</a></li>
+                <li><a href="../classes/Comment.html">Comment</a></li>
             
-                <li><a href="../classes/akismet.EndPoints.html">akismet.EndPoints</a></li>
+                <li><a href="../classes/CommentType.html">CommentType</a></li>
             
-                <li><a href="../classes/akismet.HTTPHeaders.html">akismet.HTTPHeaders</a></li>
+                <li><a href="../classes/EndPoints.html">EndPoints</a></li>
             
-                <li><a href="../classes/akismet.Server.html">akismet.Server</a></li>
+                <li><a href="../classes/HTTPHeaders.html">HTTPHeaders</a></li>
+            
+                <li><a href="../classes/Server.html">Server</a></li>
             
             </ul>
 
@@ -102,7 +104,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>akismet.CommentType Class</h1>
+                        <h1>EndPoints Class</h1>
 <div class="box meta">
     
 
@@ -110,13 +112,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/lib_comment.js.html#l7"><code>lib\comment.js:7</code></a>
+            Defined in: <a href="../files/lib_enums.js.html#l7"><code>lib\enums.js:7</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/comment.html">comment</a>
+            Module: <a href="../modules/enums.html">enums</a>
         
     
 
@@ -126,7 +128,7 @@
 
 
 <div class="box intro">
-    <p>Specifies the type of a comment.</p>
+    <p>Provides the URLs corresponding to the service end points.</p>
 
 </div>
 
@@ -157,7 +159,7 @@
                     <ul class="index-list properties">
                         
                             <li class="index-item property">
-                                <a href="#property_COMMENT">COMMENT</a>
+                                <a href="#property_CHECK_COMMENT">CHECK_COMMENT</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -166,7 +168,7 @@
                             </li>
                         
                             <li class="index-item property">
-                                <a href="#property_PINGBACK">PINGBACK</a>
+                                <a href="#property_SUBMIT_HAM">SUBMIT_HAM</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -175,7 +177,16 @@
                             </li>
                         
                             <li class="index-item property">
-                                <a href="#property_TRACKBACK">TRACKBACK</a>
+                                <a href="#property_SUBMIT_SPAM">SUBMIT_SPAM</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property">
+                                <a href="#property_VERIFY_KEY">VERIFY_KEY</a>
 
                                 
                                     <span class="flag static">static</span>
@@ -199,8 +210,8 @@
                 <h2 class="off-left">Properties</h2>
 
                 
-                    <div id="property_COMMENT" class="property item">
-    <h3 class="name"><code>COMMENT</code></h3>
+                    <div id="property_CHECK_COMMENT" class="property item">
+    <h3 class="name"><code>CHECK_COMMENT</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
     
@@ -226,7 +237,7 @@
             
         
         
-        <a href="../files/lib_comment.js.html#l14"><code>lib\comment.js:14</code></a>
+        <a href="../files/lib_enums.js.html#l14"><code>lib\enums.js:14</code></a>
         
         </p>
 
@@ -236,7 +247,7 @@
     </div>
 
     <div class="description">
-        <p>A standard comment.</p>
+        <p>URL of the <a href="https://akismet.com/development/api/#comment-check">comment check</a> end point.</p>
 
     </div>
 
@@ -248,8 +259,8 @@
 </div>
 
                 
-                    <div id="property_PINGBACK" class="property item">
-    <h3 class="name"><code>PINGBACK</code></h3>
+                    <div id="property_SUBMIT_HAM" class="property item">
+    <h3 class="name"><code>SUBMIT_HAM</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
     
@@ -275,7 +286,7 @@
             
         
         
-        <a href="../files/lib_comment.js.html#l23"><code>lib\comment.js:23</code></a>
+        <a href="../files/lib_enums.js.html#l23"><code>lib\enums.js:23</code></a>
         
         </p>
 
@@ -285,7 +296,7 @@
     </div>
 
     <div class="description">
-        <p>A <a href="https://en.wikipedia.org/wiki/Pingback">pingback</a> comment.</p>
+        <p>URL of the <a href="https://akismet.com/development/api/#submit-ham">submit ham</a> end point.</p>
 
     </div>
 
@@ -297,8 +308,8 @@
 </div>
 
                 
-                    <div id="property_TRACKBACK" class="property item">
-    <h3 class="name"><code>TRACKBACK</code></h3>
+                    <div id="property_SUBMIT_SPAM" class="property item">
+    <h3 class="name"><code>SUBMIT_SPAM</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
     
@@ -324,7 +335,7 @@
             
         
         
-        <a href="../files/lib_comment.js.html#l32"><code>lib\comment.js:32</code></a>
+        <a href="../files/lib_enums.js.html#l32"><code>lib\enums.js:32</code></a>
         
         </p>
 
@@ -334,7 +345,56 @@
     </div>
 
     <div class="description">
-        <p>A <a href="https://en.wikipedia.org/wiki/Trackback">trackback</a> comment.</p>
+        <p>URL of the <a href="https://akismet.com/development/api/#submit-spam">submit spam</a> end point.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_VERIFY_KEY" class="property item">
+    <h3 class="name"><code>VERIFY_KEY</code></h3>
+    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+
+    
+
+    
+
+    
+        <span class="flag final">final</span>
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/lib_enums.js.html#l41"><code>lib\enums.js:41</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>URL of the <a href="https://akismet.com/development/api/#verify-key">key verification</a> end point.</p>
 
     </div>
 

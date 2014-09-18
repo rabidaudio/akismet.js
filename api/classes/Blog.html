@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>akismet.Comment - Akismet.js</title>
+    <title>Blog - Akismet.js</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.2.1</em>
+            <em>API Docs for: 0.3.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -41,19 +41,21 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="../classes/akismet.Author.html">akismet.Author</a></li>
+                <li><a href="../classes/Author.html">Author</a></li>
             
-                <li><a href="../classes/akismet.Client.html">akismet.Client</a></li>
+                <li><a href="../classes/Blog.html">Blog</a></li>
             
-                <li><a href="../classes/akismet.Comment.html">akismet.Comment</a></li>
+                <li><a href="../classes/Client.html">Client</a></li>
             
-                <li><a href="../classes/akismet.CommentType.html">akismet.CommentType</a></li>
+                <li><a href="../classes/Comment.html">Comment</a></li>
             
-                <li><a href="../classes/akismet.EndPoints.html">akismet.EndPoints</a></li>
+                <li><a href="../classes/CommentType.html">CommentType</a></li>
             
-                <li><a href="../classes/akismet.HTTPHeaders.html">akismet.HTTPHeaders</a></li>
+                <li><a href="../classes/EndPoints.html">EndPoints</a></li>
             
-                <li><a href="../classes/akismet.Server.html">akismet.Server</a></li>
+                <li><a href="../classes/HTTPHeaders.html">HTTPHeaders</a></li>
+            
+                <li><a href="../classes/Server.html">Server</a></li>
             
             </ul>
 
@@ -102,7 +104,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>akismet.Comment Class</h1>
+                        <h1>Blog Class</h1>
 <div class="box meta">
     
 
@@ -110,13 +112,13 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/lib_comment.js.html#l139"><code>lib\comment.js:139</code></a>
+            Defined in: <a href="../files/lib_client.js.html#l13"><code>lib\client.js:13</code></a>
         </div>
     
 
     
         
-            Module: <a href="../modules/comment.html">comment</a>
+            Module: <a href="../modules/client.html">client</a>
         
     
 
@@ -126,19 +128,25 @@
 
 
 <div class="box intro">
-    <p>Represents a comment submitted by an author.</p>
+    <p>Represents the front page or home URL transmitted when making requests.</p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_akismet.Comment" class="method item">
-    <h3 class="name"><code>akismet.Comment</code></h3>
+        <div id="method_Blog" class="method item">
+    <h3 class="name"><code>Blog</code></h3>
 
     
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>url</code>
+                    
+                </li>
             
                 <li class="arg">
                     
@@ -175,7 +183,7 @@
             
         
         
-        <a href="../files/lib_comment.js.html#l139"><code>lib\comment.js:139</code></a>
+        <a href="../files/lib_client.js.html#l13"><code>lib\client.js:13</code></a>
         
         </p>
 
@@ -197,6 +205,22 @@
             
                 <li class="param">
                     
+                        <code class="param-name">url</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The blog or site URL.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
                         <code class="param-name optional">[options]</code>
                         <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
                         <span class="flag optional" title="This parameter is optional.">optional</span>
@@ -205,7 +229,7 @@
                     
 
                     <div class="param-description">
-                        <p>An object specifying values used to initialize this instance.</p>
+                        <p>An object specifying additional values used to initialize this instance.</p>
 
                     </div>
 
@@ -282,35 +306,21 @@
                     <ul class="index-list properties">
                         
                             <li class="index-item property">
-                                <a href="#property_author">author</a>
+                                <a href="#property_charset">charset</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item property">
-                                <a href="#property_content">content</a>
+                                <a href="#property_lang">lang</a>
 
                                 
                                 
                             </li>
                         
                             <li class="index-item property">
-                                <a href="#property_permalink">permalink</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_referrer">referrer</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_type">type</a>
+                                <a href="#property_url">url</a>
 
                                 
                                 
@@ -349,7 +359,7 @@
 
     
         <span class="returns-inline">
-            <span class="type">Comment</span>
+            <span class="type">akismet.Author</span>
         </span>
     
 
@@ -378,7 +388,7 @@
             
         
         
-        <a href="../files/lib_comment.js.html#l189"><code>lib\comment.js:189</code></a>
+        <a href="../files/lib_client.js.html#l49"><code>lib\client.js:49</code></a>
         
         </p>
 
@@ -389,7 +399,7 @@
     </div>
 
     <div class="description">
-        <p>Creates a new comment from the specified JSON string.</p>
+        <p>Creates a new author from the specified JSON string.</p>
 
     </div>
 
@@ -408,7 +418,7 @@
                     
 
                     <div class="param-description">
-                        <p>A JSON string, or an already parsed object, representing a comment.</p>
+                        <p>A JSON string, or an already parsed object, representing an author.</p>
 
                     </div>
 
@@ -426,7 +436,7 @@
             <div class="returns-description">
                 
                     
-                        <span class="type">Comment</span>:
+                        <span class="type">akismet.Author</span>:
                     
                     <p>The instance corresponding to the specified JSON object, or <code>null</code> if a parsing error occurred.</p>
 
@@ -475,7 +485,7 @@
             
         
         
-        <a href="../files/lib_comment.js.html#l223"><code>lib\comment.js:223</code></a>
+        <a href="../files/lib_client.js.html#l70"><code>lib\client.js:70</code></a>
         
         </p>
 
@@ -548,7 +558,7 @@
             
         
         
-        <a href="../files/lib_comment.js.html#l242"><code>lib\comment.js:242</code></a>
+        <a href="../files/lib_client.js.html#l83"><code>lib\client.js:83</code></a>
         
         </p>
 
@@ -593,53 +603,8 @@
                 <h2 class="off-left">Properties</h2>
 
                 
-                    <div id="property_author" class="property item">
-    <h3 class="name"><code>author</code></h3>
-    <span class="type"><a href="../classes/akismet.Author.html" class="crosslink">akismet.Author</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/lib_comment.js.html#l147"><code>lib\comment.js:147</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The comment&#39;s author.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_content" class="property item">
-    <h3 class="name"><code>content</code></h3>
+                    <div id="property_charset" class="property item">
+    <h3 class="name"><code>charset</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
     
@@ -661,7 +626,7 @@
             
         
         
-        <a href="../files/lib_comment.js.html#l154"><code>lib\comment.js:154</code></a>
+        <a href="../files/lib_client.js.html#l22"><code>lib\client.js:22</code></a>
         
         </p>
 
@@ -671,7 +636,7 @@
     </div>
 
     <div class="description">
-        <p>The comment&#39;s content.</p>
+        <p>The character encoding for the values included in comments.</p>
 
     </div>
 
@@ -683,8 +648,8 @@
 </div>
 
                 
-                    <div id="property_permalink" class="property item">
-    <h3 class="name"><code>permalink</code></h3>
+                    <div id="property_lang" class="property item">
+    <h3 class="name"><code>lang</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
     
@@ -706,7 +671,7 @@
             
         
         
-        <a href="../files/lib_comment.js.html#l161"><code>lib\comment.js:161</code></a>
+        <a href="../files/lib_client.js.html#l29"><code>lib\client.js:29</code></a>
         
         </p>
 
@@ -716,7 +681,7 @@
     </div>
 
     <div class="description">
-        <p>The permanent location of the entry the comment is submitted to.</p>
+        <p>The language(s) in use on the blog or site.</p>
 
     </div>
 
@@ -728,8 +693,8 @@
 </div>
 
                 
-                    <div id="property_referrer" class="property item">
-    <h3 class="name"><code>referrer</code></h3>
+                    <div id="property_url" class="property item">
+    <h3 class="name"><code>url</code></h3>
     <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
 
     
@@ -751,7 +716,7 @@
             
         
         
-        <a href="../files/lib_comment.js.html#l168"><code>lib\comment.js:168</code></a>
+        <a href="../files/lib_client.js.html#l36"><code>lib\client.js:36</code></a>
         
         </p>
 
@@ -761,53 +726,7 @@
     </div>
 
     <div class="description">
-        <p>The URL of the webpage that linked to the entry being requested.</p>
-
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_type" class="property item">
-    <h3 class="name"><code>type</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/lib_comment.js.html#l175"><code>lib\comment.js:175</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The comment&#39;s type.
-This string value specifies a <code>akismet.CommentType</code> constant or a made up value like <code>&quot;registration&quot;</code>.</p>
+        <p>The blog or site URL.</p>
 
     </div>
 

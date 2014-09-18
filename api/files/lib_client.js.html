@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.2.1</em>
+            <em>API Docs for: 0.3.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -41,19 +41,21 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="../classes/akismet.Author.html">akismet.Author</a></li>
+                <li><a href="../classes/Author.html">Author</a></li>
             
-                <li><a href="../classes/akismet.Client.html">akismet.Client</a></li>
+                <li><a href="../classes/Blog.html">Blog</a></li>
             
-                <li><a href="../classes/akismet.Comment.html">akismet.Comment</a></li>
+                <li><a href="../classes/Client.html">Client</a></li>
             
-                <li><a href="../classes/akismet.CommentType.html">akismet.CommentType</a></li>
+                <li><a href="../classes/Comment.html">Comment</a></li>
             
-                <li><a href="../classes/akismet.EndPoints.html">akismet.EndPoints</a></li>
+                <li><a href="../classes/CommentType.html">CommentType</a></li>
             
-                <li><a href="../classes/akismet.HTTPHeaders.html">akismet.HTTPHeaders</a></li>
+                <li><a href="../classes/EndPoints.html">EndPoints</a></li>
             
-                <li><a href="../classes/akismet.Server.html">akismet.Server</a></li>
+                <li><a href="../classes/HTTPHeaders.html">HTTPHeaders</a></li>
+            
+                <li><a href="../classes/Server.html">Server</a></li>
             
             </ul>
 
@@ -119,11 +121,90 @@ var url=require(&#x27;url&#x27;);
 var util=require(&#x27;util&#x27;);
 
 /**
+ * Represents the front page or home URL transmitted when making requests.
+ * @class Blog
+ * @constructor
+ * @param {String} url The blog or site URL.
+ * @param {Object} [options] An object specifying additional values used to initialize this instance.
+ */
+function Blog(url, options) {
+
+  /**
+   * The character encoding for the values included in comments.
+   * @property charset
+   * @type String
+   */
+  this.charset=null;
+
+  /**
+   * The language(s) in use on the blog or site.
+   * @property lang
+   * @type String
+   */
+  this.lang=null;
+
+  /**
+   * The blog or site URL.
+   * @property url
+   * @type String
+   */
+  this.url=(typeof url==&#x27;string&#x27; ? url : null);
+
+  // Initialize the instance.
+  if(options &amp;&amp; typeof options==&#x27;object&#x27;)
+    for(var key in options)
+      if(this.hasOwnProperty(key) &amp;&amp; options[key]) this[key]=options[key];
+}
+
+/**
+ * Creates a new author from the specified JSON string.
+ * @method fromJSON
+ * @param {Object|String} json A JSON string, or an already parsed object, representing an author.
+ * @return {akismet.Author} The instance corresponding to the specified JSON object, or &#x60;null&#x60; if a parsing error occurred.
+ * @static
+ */
+Blog.fromJSON=function(json) {
+  var map;
+  if(typeof json!=&#x27;string&#x27;) map=json;
+  else {
+    try { map=JSON.parse(json); }
+    catch(e) { return null; }
+  }
+
+  return !map || typeof map!=&#x27;object&#x27; ? null : new Blog(map.blog, {
+    charset: map.blog_charset,
+    lang: map.blog_lang
+  });
+};
+
+/**
+ * Converts this object to a string in JSON format.
+ * @method toJSON
+ * @return {String} The JSON representation of this object.
+ */
+Blog.prototype.toJSON=function() {
+  var map={};
+  if(typeof this.url==&#x27;string&#x27;) map.blog=this.url;
+  if(typeof this.charset==&#x27;string&#x27;) map.blog_charset=this.charset;
+  if(typeof this.lang==&#x27;string&#x27;) map.blog_lang=this.lang;
+  return JSON.stringify(map);
+};
+
+/**
+ * Returns a string representation of this object.
+ * @method toString
+ * @return {String} The string representation of this object.
+ */
+Blog.prototype.toString=function() {
+  return &#x27;Blog &#x27;+this.toJSON();
+};
+
+/**
  * Provides the base class for clients that submit comments to [Akismet](https://akismet.com) service.
- * @class akismet.Client
+ * @class Client
  * @constructor
  * @param {String} apiKey The Akismet API key used to query the service.
- * @param {String} blog The front page or home URL transmitted when making requests.
+ * @param {String|Blog} blog The front page or home URL transmitted when making requests.
  * @param {Object} [options] An object specifying additional values used to initialize this instance.
  */
 function Client(apiKey, blog, options) {
@@ -140,7 +221,7 @@ function Client(apiKey, blog, options) {
    * @property blog
    * @type String
    */
-  this.blog=String(blog);
+  this.blog=(blog instanceof Blog ? blog : new Blog(blog));
 
   /**
    * The user agent string to use when making requests.
@@ -258,7 +339,7 @@ Client.prototype.submitSpam=function(comment, callback) {
 Client.prototype.toString=function() {
   return util.format(&#x27;Client { apiKey: &quot;%s&quot;, blog: &quot;%s&quot;, serviceUrl: &quot;%s&quot;, userAgent: &quot;%s&quot; }&#x27;,
     this.apiKey,
-    this.blog,
+    this.blog.url,
     this.serviceUrl,
     this.userAgent
   );
@@ -292,8 +373,10 @@ Client.prototype.verifyKey=function(callback) {
  * @async
  */
 Client.prototype._queryService=function(endPoint, fields, callback) {
-  fields.blog=this.blog;
   fields.key=this.apiKey;
+  fields.blog=this.blog.url;
+  if(this.blog.charset) fields.blog_charset=this.blog.charset;
+  if(this.blog.lang) fields.blog_lang=this.blog.lang;
 
   request
     .post(endPoint)
@@ -311,7 +394,10 @@ Client.prototype._queryService=function(endPoint, fields, callback) {
 };
 
 // Public interface.
-module.exports=Client;
+module.exports={
+  Blog: Blog,
+  Client: Client
+};
 
     </pre>
 </div>

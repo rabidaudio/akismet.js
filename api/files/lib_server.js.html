@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.2.1</em>
+            <em>API Docs for: 0.3.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -41,19 +41,21 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="../classes/akismet.Author.html">akismet.Author</a></li>
+                <li><a href="../classes/Author.html">Author</a></li>
             
-                <li><a href="../classes/akismet.Client.html">akismet.Client</a></li>
+                <li><a href="../classes/Blog.html">Blog</a></li>
             
-                <li><a href="../classes/akismet.Comment.html">akismet.Comment</a></li>
+                <li><a href="../classes/Client.html">Client</a></li>
             
-                <li><a href="../classes/akismet.CommentType.html">akismet.CommentType</a></li>
+                <li><a href="../classes/Comment.html">Comment</a></li>
             
-                <li><a href="../classes/akismet.EndPoints.html">akismet.EndPoints</a></li>
+                <li><a href="../classes/CommentType.html">CommentType</a></li>
             
-                <li><a href="../classes/akismet.HTTPHeaders.html">akismet.HTTPHeaders</a></li>
+                <li><a href="../classes/EndPoints.html">EndPoints</a></li>
             
-                <li><a href="../classes/akismet.Server.html">akismet.Server</a></li>
+                <li><a href="../classes/HTTPHeaders.html">HTTPHeaders</a></li>
+            
+                <li><a href="../classes/Server.html">Server</a></li>
             
             </ul>
 
@@ -114,19 +116,22 @@
 
 // Module dependencies.
 var bodyParser=require(&#x27;body-parser&#x27;);
-var Client=require(&#x27;./client&#x27;);
-var core=require(&#x27;./comment&#x27;);
 var enums=require(&#x27;./enums&#x27;);
-var EventEmitter=require(&#x27;events&#x27;).EventEmitter;
 var express=require(&#x27;express&#x27;);
 var http=require(&#x27;http&#x27;);
 var https=require(&#x27;https&#x27;);
 var url=require(&#x27;url&#x27;);
 var util=require(&#x27;util&#x27;);
 
+var Author=require(&#x27;./comment&#x27;).Author;
+var Blog=require(&#x27;./client&#x27;).Blog;
+var Client=require(&#x27;./client&#x27;).Client;
+var Comment=require(&#x27;./comment&#x27;).Comment;
+var EventEmitter=require(&#x27;events&#x27;).EventEmitter;
+
 /**
  * An HTTP server that acts as a proxy between clients and the [Akismet](https://akismet.com) service.
- * @class akismet.Server
+ * @class Server
  * @constructor
  * @param {Object} [options] An object specifying values used to initialize this instance.
  */
@@ -353,14 +358,13 @@ Server._addCORSHeaders=function(req, res, next) {
  */
 Server._processRequest=function(req, res, next) {
   // Parse client arguments.
-  var blog=(&#x27;blog&#x27; in req.body ? req.body.blog : &#x27;/&#x27;);
   var apiKey=(&#x27;key&#x27; in req.body ? req.body.key : req.hostname.split(&#x27;.&#x27;)[0]);
   var userAgent=(enums.HTTPHeaders.X_USER_AGENT in req.headers ? req.headers[enums.HTTPHeaders.X_USER_AGENT] : req.headers[&#x27;user-agent&#x27;]);
-  var client=new Client(apiKey, blog, { userAgent: userAgent });
+  var client=new Client(apiKey, Blog.fromJSON(req.body), { userAgent: userAgent });
 
   // Parse comment values.
-  var comment=core.Comment.fromJSON(req.body);
-  if(!comment.author) comment.author=new core.Author();
+  var comment=Comment.fromJSON(req.body);
+  if(!comment.author) comment.author=new Author();
   if(!comment.author.ipAddress) comment.author.ipAddress=req.connection.remoteAddress;
 
   // Update request properties.
