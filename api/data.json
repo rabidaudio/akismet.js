@@ -13,8 +13,8 @@
                 "client": 1
             },
             "classes": {
-                "Blog": 1,
-                "Client": 1
+                "akismet.Blog": 1,
+                "akismet.Client": 1
             },
             "fors": {},
             "namespaces": {}
@@ -25,9 +25,9 @@
                 "comment": 1
             },
             "classes": {
-                "CommentType": 1,
-                "Author": 1,
-                "Comment": 1
+                "akismet.CommentType": 1,
+                "akismet.Author": 1,
+                "akismet.Comment": 1
             },
             "fors": {},
             "namespaces": {}
@@ -38,8 +38,8 @@
                 "enums": 1
             },
             "classes": {
-                "EndPoints": 1,
-                "HTTPHeaders": 1
+                "akismet.EndPoints": 1,
+                "akismet.HTTPHeaders": 1
             },
             "fors": {},
             "namespaces": {}
@@ -50,7 +50,7 @@
                 "server": 1
             },
             "classes": {
-                "Server": 1
+                "akismet.Server": 1
             },
             "fors": {},
             "namespaces": {}
@@ -61,8 +61,8 @@
             "name": "client",
             "submodules": {},
             "classes": {
-                "Blog": 1,
-                "Client": 1
+                "akismet.Blog": 1,
+                "akismet.Client": 1
             },
             "fors": {},
             "namespaces": {},
@@ -75,9 +75,9 @@
             "name": "comment",
             "submodules": {},
             "classes": {
-                "CommentType": 1,
-                "Author": 1,
-                "Comment": 1
+                "akismet.CommentType": 1,
+                "akismet.Author": 1,
+                "akismet.Comment": 1
             },
             "fors": {},
             "namespaces": {},
@@ -90,8 +90,8 @@
             "name": "enums",
             "submodules": {},
             "classes": {
-                "EndPoints": 1,
-                "HTTPHeaders": 1
+                "akismet.EndPoints": 1,
+                "akismet.HTTPHeaders": 1
             },
             "fors": {},
             "namespaces": {},
@@ -104,7 +104,7 @@
             "name": "server",
             "submodules": {},
             "classes": {
-                "Server": 1
+                "akismet.Server": 1
             },
             "fors": {},
             "namespaces": {},
@@ -115,9 +115,9 @@
         }
     },
     "classes": {
-        "Blog": {
-            "name": "Blog",
-            "shortname": "Blog",
+        "akismet.Blog": {
+            "name": "akismet.Blog",
+            "shortname": "akismet.Blog",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -143,9 +143,9 @@
                 }
             ]
         },
-        "Client": {
-            "name": "Client",
-            "shortname": "Client",
+        "akismet.Client": {
+            "name": "akismet.Client",
+            "shortname": "akismet.Client",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -166,7 +166,7 @@
                 {
                     "name": "blog",
                     "description": "The front page or home URL transmitted when making requests.",
-                    "type": "String|Blog"
+                    "type": "String|akismet.Blog"
                 },
                 {
                     "name": "options",
@@ -176,9 +176,9 @@
                 }
             ]
         },
-        "CommentType": {
-            "name": "CommentType",
-            "shortname": "CommentType",
+        "akismet.CommentType": {
+            "name": "akismet.CommentType",
+            "shortname": "akismet.CommentType",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -191,9 +191,9 @@
             "description": "Specifies the type of a comment.",
             "static": 1
         },
-        "Author": {
-            "name": "Author",
-            "shortname": "Author",
+        "akismet.Author": {
+            "name": "akismet.Author",
+            "shortname": "akismet.Author",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -214,9 +214,9 @@
                 }
             ]
         },
-        "Comment": {
-            "name": "Comment",
-            "shortname": "Comment",
+        "akismet.Comment": {
+            "name": "akismet.Comment",
+            "shortname": "akismet.Comment",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -237,9 +237,9 @@
                 }
             ]
         },
-        "EndPoints": {
-            "name": "EndPoints",
-            "shortname": "EndPoints",
+        "akismet.EndPoints": {
+            "name": "akismet.EndPoints",
+            "shortname": "akismet.EndPoints",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -252,9 +252,9 @@
             "description": "Provides the URLs corresponding to the service end points.",
             "static": 1
         },
-        "HTTPHeaders": {
-            "name": "HTTPHeaders",
-            "shortname": "HTTPHeaders",
+        "akismet.HTTPHeaders": {
+            "name": "akismet.HTTPHeaders",
+            "shortname": "akismet.HTTPHeaders",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -267,9 +267,9 @@
             "description": "A collection of custom HTTP headers and their values.",
             "static": 1
         },
-        "Server": {
-            "name": "Server",
-            "shortname": "Server",
+        "akismet.Server": {
+            "name": "akismet.Server",
+            "shortname": "akismet.Server",
             "classitems": [],
             "plugins": [],
             "extensions": [],
@@ -299,7 +299,7 @@
             "itemtype": "property",
             "name": "charset",
             "type": "String",
-            "class": "Blog",
+            "class": "akismet.Blog",
             "module": "client"
         },
         {
@@ -309,7 +309,7 @@
             "itemtype": "property",
             "name": "language",
             "type": "String",
-            "class": "Blog",
+            "class": "akismet.Blog",
             "module": "client"
         },
         {
@@ -319,7 +319,7 @@
             "itemtype": "property",
             "name": "url",
             "type": "String",
-            "class": "Blog",
+            "class": "akismet.Blog",
             "module": "client"
         },
         {
@@ -337,10 +337,10 @@
             ],
             "return": {
                 "description": "The instance corresponding to the specified JSON object, or `null` if a parsing error occurred.",
-                "type": "akismet.Author"
+                "type": "akismet.Blog"
             },
             "static": 1,
-            "class": "Blog",
+            "class": "akismet.Blog",
             "module": "client"
         },
         {
@@ -353,7 +353,7 @@
                 "description": "The JSON representation of this object.",
                 "type": "String"
             },
-            "class": "Blog",
+            "class": "akismet.Blog",
             "module": "client"
         },
         {
@@ -366,7 +366,7 @@
                 "description": "The string representation of this object.",
                 "type": "String"
             },
-            "class": "Blog",
+            "class": "akismet.Blog",
             "module": "client"
         },
         {
@@ -376,7 +376,7 @@
             "itemtype": "property",
             "name": "apiKey",
             "type": "String",
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -385,8 +385,8 @@
             "description": "The front page or home URL of the instance making requests.",
             "itemtype": "property",
             "name": "blog",
-            "type": "String",
-            "class": "Client",
+            "type": "akismet.Blog",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -396,7 +396,7 @@
             "itemtype": "property",
             "name": "userAgent",
             "type": "String",
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -407,7 +407,7 @@
             "name": "serviceUrl",
             "type": "String",
             "default": "\"https://rest.akismet.com\"",
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -419,7 +419,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -441,7 +441,7 @@
                 }
             ],
             "async": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -464,7 +464,7 @@
                 }
             ],
             "async": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -487,7 +487,7 @@
                 }
             ],
             "async": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -500,7 +500,7 @@
                 "description": "The string representation of this object.",
                 "type": "String"
             },
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -517,7 +517,7 @@
                 }
             ],
             "async": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -546,7 +546,7 @@
             "access": "private",
             "tagname": "",
             "async": 1,
-            "class": "Client",
+            "class": "akismet.Client",
             "module": "client"
         },
         {
@@ -558,7 +558,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "CommentType",
+            "class": "akismet.CommentType",
             "module": "comment"
         },
         {
@@ -570,7 +570,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "CommentType",
+            "class": "akismet.CommentType",
             "module": "comment"
         },
         {
@@ -582,7 +582,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "CommentType",
+            "class": "akismet.CommentType",
             "module": "comment"
         },
         {
@@ -592,7 +592,7 @@
             "itemtype": "property",
             "name": "email",
             "type": "String",
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
@@ -602,7 +602,7 @@
             "itemtype": "property",
             "name": "ipAddress",
             "type": "String",
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
@@ -612,7 +612,7 @@
             "itemtype": "property",
             "name": "name",
             "type": "String",
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
@@ -622,7 +622,7 @@
             "itemtype": "property",
             "name": "url",
             "type": "String",
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
@@ -632,7 +632,7 @@
             "itemtype": "property",
             "name": "userAgent",
             "type": "String",
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
@@ -653,7 +653,7 @@
                 "type": "akismet.Author"
             },
             "static": 1,
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
@@ -666,7 +666,7 @@
                 "description": "The JSON representation of this object.",
                 "type": "String"
             },
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
@@ -679,7 +679,7 @@
                 "description": "The string representation of this object.",
                 "type": "String"
             },
-            "class": "Author",
+            "class": "akismet.Author",
             "module": "comment"
         },
         {
@@ -689,7 +689,7 @@
             "itemtype": "property",
             "name": "author",
             "type": "akismet.Author",
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
@@ -699,7 +699,7 @@
             "itemtype": "property",
             "name": "content",
             "type": "String",
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
@@ -709,7 +709,7 @@
             "itemtype": "property",
             "name": "permalink",
             "type": "String",
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
@@ -719,7 +719,7 @@
             "itemtype": "property",
             "name": "referrer",
             "type": "String",
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
@@ -729,7 +729,7 @@
             "itemtype": "property",
             "name": "type",
             "type": "String",
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
@@ -747,10 +747,10 @@
             ],
             "return": {
                 "description": "The instance corresponding to the specified JSON object, or `null` if a parsing error occurred.",
-                "type": "Comment"
+                "type": "akismet.Comment"
             },
             "static": 1,
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
@@ -763,7 +763,7 @@
                 "description": "The JSON representation of this object.",
                 "type": "String"
             },
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
@@ -776,7 +776,7 @@
                 "description": "The string representation of this object.",
                 "type": "String"
             },
-            "class": "Comment",
+            "class": "akismet.Comment",
             "module": "comment"
         },
         {
@@ -788,7 +788,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "EndPoints",
+            "class": "akismet.EndPoints",
             "module": "enums"
         },
         {
@@ -800,7 +800,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "EndPoints",
+            "class": "akismet.EndPoints",
             "module": "enums"
         },
         {
@@ -812,7 +812,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "EndPoints",
+            "class": "akismet.EndPoints",
             "module": "enums"
         },
         {
@@ -824,7 +824,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "EndPoints",
+            "class": "akismet.EndPoints",
             "module": "enums"
         },
         {
@@ -836,7 +836,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "HTTPHeaders",
+            "class": "akismet.HTTPHeaders",
             "module": "enums"
         },
         {
@@ -848,7 +848,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "HTTPHeaders",
+            "class": "akismet.HTTPHeaders",
             "module": "enums"
         },
         {
@@ -860,7 +860,7 @@
             "type": "String",
             "static": 1,
             "final": 1,
-            "class": "HTTPHeaders",
+            "class": "akismet.HTTPHeaders",
             "module": "enums"
         },
         {
@@ -869,7 +869,7 @@
             "description": "Emitted when the server closes.",
             "itemtype": "event",
             "name": "close",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -885,7 +885,7 @@
                     "type": "Error"
                 }
             ],
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -894,7 +894,7 @@
             "description": "Emitted when the server has been bound after calling `listen` method.",
             "itemtype": "event",
             "name": "listening",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -910,7 +910,7 @@
                     "type": "http.IncomingMessage"
                 }
             ],
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -922,7 +922,7 @@
             "type": "Function",
             "access": "private",
             "tagname": "",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -934,7 +934,7 @@
             "type": "Object",
             "access": "private",
             "tagname": "",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -946,7 +946,7 @@
             "type": "{http.Server|https.Server}",
             "access": "private",
             "tagname": "",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -958,7 +958,7 @@
             "type": "String",
             "final": 1,
             "default": "\"0.0.0.0\"",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -970,7 +970,7 @@
             "type": "Number",
             "final": 1,
             "default": "3000",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -982,7 +982,7 @@
             "type": "String",
             "final": 1,
             "default": "null",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -1003,7 +1003,7 @@
                     "type": "express.Response"
                 }
             ],
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -1021,7 +1021,7 @@
                 }
             ],
             "async": 1,
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -1051,13 +1051,13 @@
                 }
             ],
             "async": 1,
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
             "file": "lib\\server.js",
             "line": 179,
-            "description": "Submits a `Comment` that was incorrectly marked as spam but should not have been.",
+            "description": "Submits a comment that was incorrectly marked as spam but should not have been.",
             "itemtype": "method",
             "name": "submitHam",
             "params": [
@@ -1072,13 +1072,13 @@
                     "type": "express.Response"
                 }
             ],
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
             "file": "lib\\server.js",
             "line": 194,
-            "description": "Submits a `Comment` that was not marked as spam but should have been.",
+            "description": "Submits a comment that was not marked as spam but should have been.",
             "itemtype": "method",
             "name": "submitSpam",
             "params": [
@@ -1093,7 +1093,7 @@
                     "type": "express.Response"
                 }
             ],
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -1114,7 +1114,7 @@
                     "type": "express.Response"
                 }
             ],
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -1143,7 +1143,7 @@
             "static": 1,
             "access": "private",
             "tagname": "",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -1172,7 +1172,7 @@
             "static": 1,
             "access": "private",
             "tagname": "",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -1183,7 +1183,7 @@
             "name": "_registerMiddleware",
             "access": "private",
             "tagname": "",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -1194,7 +1194,7 @@
             "name": "_registerRoutes",
             "access": "private",
             "tagname": "",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         },
         {
@@ -1224,7 +1224,7 @@
             "static": 1,
             "access": "private",
             "tagname": "",
-            "class": "Server",
+            "class": "akismet.Server",
             "module": "server"
         }
     ],

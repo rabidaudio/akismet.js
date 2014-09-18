@@ -1,14 +1,14 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
-        "Author",
-        "Blog",
-        "Client",
-        "Comment",
-        "CommentType",
-        "EndPoints",
-        "HTTPHeaders",
-        "Server"
+        "akismet.Author",
+        "akismet.Blog",
+        "akismet.Client",
+        "akismet.Comment",
+        "akismet.CommentType",
+        "akismet.EndPoints",
+        "akismet.HTTPHeaders",
+        "akismet.Server"
     ],
     "modules": [
         "client",

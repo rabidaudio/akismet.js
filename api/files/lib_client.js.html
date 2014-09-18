@@ -41,21 +41,21 @@
         <div id="api-tabview-panel">
             <ul id="api-classes" class="apis classes">
             
-                <li><a href="../classes/Author.html">Author</a></li>
+                <li><a href="../classes/akismet.Author.html">akismet.Author</a></li>
             
-                <li><a href="../classes/Blog.html">Blog</a></li>
+                <li><a href="../classes/akismet.Blog.html">akismet.Blog</a></li>
             
-                <li><a href="../classes/Client.html">Client</a></li>
+                <li><a href="../classes/akismet.Client.html">akismet.Client</a></li>
             
-                <li><a href="../classes/Comment.html">Comment</a></li>
+                <li><a href="../classes/akismet.Comment.html">akismet.Comment</a></li>
             
-                <li><a href="../classes/CommentType.html">CommentType</a></li>
+                <li><a href="../classes/akismet.CommentType.html">akismet.CommentType</a></li>
             
-                <li><a href="../classes/EndPoints.html">EndPoints</a></li>
+                <li><a href="../classes/akismet.EndPoints.html">akismet.EndPoints</a></li>
             
-                <li><a href="../classes/HTTPHeaders.html">HTTPHeaders</a></li>
+                <li><a href="../classes/akismet.HTTPHeaders.html">akismet.HTTPHeaders</a></li>
             
-                <li><a href="../classes/Server.html">Server</a></li>
+                <li><a href="../classes/akismet.Server.html">akismet.Server</a></li>
             
             </ul>
 
@@ -122,7 +122,7 @@ var util=require(&#x27;util&#x27;);
 
 /**
  * Represents the front page or home URL transmitted when making requests.
- * @class Blog
+ * @class akismet.Blog
  * @constructor
  * @param {String} url The blog or site URL.
  * @param {Object} [options] An object specifying additional values used to initialize this instance.
@@ -160,7 +160,7 @@ function Blog(url, options) {
  * Creates a new author from the specified JSON string.
  * @method fromJSON
  * @param {Object|String} json A JSON string, or an already parsed object, representing an author.
- * @return {akismet.Author} The instance corresponding to the specified JSON object, or &#x60;null&#x60; if a parsing error occurred.
+ * @return {akismet.Blog} The instance corresponding to the specified JSON object, or &#x60;null&#x60; if a parsing error occurred.
  * @static
  */
 Blog.fromJSON=function(json) {
@@ -201,10 +201,10 @@ Blog.prototype.toString=function() {
 
 /**
  * Provides the base class for clients that submit comments to [Akismet](https://akismet.com) service.
- * @class Client
+ * @class akismet.Client
  * @constructor
  * @param {String} apiKey The Akismet API key used to query the service.
- * @param {String|Blog} blog The front page or home URL transmitted when making requests.
+ * @param {String|akismet.Blog} blog The front page or home URL transmitted when making requests.
  * @param {Object} [options] An object specifying additional values used to initialize this instance.
  */
 function Client(apiKey, blog, options) {
@@ -219,7 +219,7 @@ function Client(apiKey, blog, options) {
   /**
    * The front page or home URL of the instance making requests.
    * @property blog
-   * @type String
+   * @type akismet.Blog
    */
   this.blog=(blog instanceof Blog ? blog : new Blog(blog));
 
