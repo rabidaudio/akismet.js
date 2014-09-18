@@ -307,7 +307,7 @@
             "line": 29,
             "description": "The language(s) in use on the blog or site.",
             "itemtype": "property",
-            "name": "lang",
+            "name": "language",
             "type": "String",
             "class": "Blog",
             "module": "client"
