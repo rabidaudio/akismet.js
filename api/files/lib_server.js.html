@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.3.0</em>
+            <em>API Docs for: 0.3.1</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -414,13 +414,13 @@ Server.prototype._registerRoutes=function() {
  * @method _sendResponse
  * @param {express.Response} res The response sent by the server.
  * @param {String} body The response body to send to the client.
- * @param {String} [error] An error message to add to the response headers as &#x60;akismet.HTTPHeaders.X_AKISMET_DEBUG_HELP&#x60;.
+ * @param {Object} [error] An error message to add to the response headers as &#x60;akismet.HTTPHeaders.X_AKISMET_DEBUG_HELP&#x60;.
  * @static
  * @private
  */
 Server._sendResponse=function(res, body, error) {
   res.type(&#x27;text/plain; charset=utf-8&#x27;);
-  if(typeof error==&#x27;string&#x27;) res.set(enums.HTTPHeaders.X_AKISMET_DEBUG_HELP, error);
+  if(typeof error!=&#x27;undefined&#x27;) res.set(enums.HTTPHeaders.X_AKISMET_DEBUG_HELP, error.toString());
   res.send(body);
 };
 

@@ -4,7 +4,7 @@
         "name": "Akismet.js",
         "url": "https://www.npmjs.org/package/akismet-js",
         "description": "Prevent comment spam using Akismet service.",
-        "version": "0.3.0"
+        "version": "0.3.1"
     },
     "files": {
         "lib\\client.js": {
@@ -1217,7 +1217,7 @@
                 {
                     "name": "error",
                     "description": "An error message to add to the response headers as `akismet.HTTPHeaders.X_AKISMET_DEBUG_HELP`.",
-                    "type": "String",
+                    "type": "Object",
                     "optional": true
                 }
             ],

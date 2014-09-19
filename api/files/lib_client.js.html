@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.3.0</em>
+            <em>API Docs for: 0.3.1</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -385,7 +385,7 @@ Client.prototype._queryService=function(endPoint, fields, callback) {
     .send(fields)
     .end(function(err, res) {
       if(err) callback(err, null);
-      else if(res.status!=200) callback(new Error(res.status), null);
+      else if(!res.ok) callback(new Error(res.error ? res.error.message : res.status), null);
       else {
         var akismetHeader=enums.HTTPHeaders.X_AKISMET_DEBUG_HELP;
         callback(akismetHeader in res.header ? new Error(res.header[akismetHeader]) : null, res.text);
