@@ -1,848 +1,748 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
     <title>akismet.Comment - Akismet.js</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
-    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
-    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
-    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
-    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
-</head>
-<body class="yui3-skin-sam">
 
-<div id="doc">
-    <div id="hd" class="yui3-g header">
-        <div class="yui3-u-3-4">
-            
-                <h1><img src="http://dev.belin.io/akismet.js/favicon.ico" title="Akismet.js"></h1>
-            
-        </div>
-        <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.3.2</em>
-        </div>
+    <meta name="application-name" content="Akismet.js">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Akismet.js">
+
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+    <link rel="icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/css/default.min.css">
+    <link rel="stylesheet" href="../assets/vendor/prism-light.css">
+  </head>
+
+  <body data-assets="../assets" data-base-url="../" data-theme="default">
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <header><nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-target="#menu" data-toggle="collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../">
+        <img alt="" src="http://dev.belin.io/akismet.js/favicon.ico">
+        Akismet.js
+      </a>
     </div>
-    <div id="bd" class="yui3-g">
 
-        <div class="yui3-u-1-4">
-            <div id="docs-sidebar" class="sidebar apidocs">
-                <div id="api-list">
-    <h2 class="off-left">APIs</h2>
-    <div id="api-tabview" class="tabview">
-        <ul class="tabs">
-            <li><a href="#api-classes">Classes</a></li>
-            <li><a href="#api-modules">Modules</a></li>
-        </ul>
-
-        <div id="api-tabview-filter">
-            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Project <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="../"><i class="fa fa-fw fa-sitemap"></i> Overview</a></li>
+            <li><a href="https://www.npmjs.org/package/akismet-js" rel="external" target="_blank"><i class="fa fa-fw fa-home"></i> Homepage</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Show <span class="caret"></span>
+          </a>
+          <ul id="menu-visibility" class="dropdown-menu">
+            <li><a href="#api-show-inherited"><i class="fa fa-fw fa-check-square-o"></i> Inherited</a></li>
+            <li><a href="#api-show-protected"><i class="fa fa-fw fa-check-square-o"></i> Protected</a></li>
+            <li><a href="#api-show-private"><i class="fa fa-fw fa-square-o"></i> Private</a></li>
+            <li><a href="#api-show-deprecated"><i class="fa fa-fw fa-square-o"></i> Deprecated</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="hidden-xs"><i class="fa fa-question-circle fa-lg"></i> <span class="caret"></span></span>
+            <span class="visible-xs-inline">Help <span class="caret"></span></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">DocGen.js</li>
+            <li><a href="https://github.com/cedx/docgen.js/wiki" rel="external" target="_blank"><i class="fa fa-book fa-fw"></i> Online Help</a></li>
+            <li><a href="https://github.com/cedx/docgen.js/issues" rel="external" target="_blank"><i class="fa fa-bug fa-fw"></i> File an Issue</a></li>
+            <li><a href="https://github.com/cedx/docgen.js" rel="external" target="_blank"><i class="fa fa-code fa-fw"></i> Get the Source</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form id="api-search" class="navbar-form navbar-right">
+        <div class="input-group">
+          <input type="search" class="form-control" placeholder="Search docs and APIs">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+          </span>
         </div>
-
-        <div id="api-tabview-panel">
-            <ul id="api-classes" class="apis classes">
-            
-                <li><a href="../classes/akismet.Author.html">akismet.Author</a></li>
-            
-                <li><a href="../classes/akismet.Blog.html">akismet.Blog</a></li>
-            
-                <li><a href="../classes/akismet.Client.html">akismet.Client</a></li>
-            
-                <li><a href="../classes/akismet.Comment.html">akismet.Comment</a></li>
-            
-                <li><a href="../classes/akismet.CommentType.html">akismet.CommentType</a></li>
-            
-                <li><a href="../classes/akismet.EndPoints.html">akismet.EndPoints</a></li>
-            
-                <li><a href="../classes/akismet.HTTPHeaders.html">akismet.HTTPHeaders</a></li>
-            
-                <li><a href="../classes/akismet.Server.html">akismet.Server</a></li>
-            
-            </ul>
-
-            <ul id="api-modules" class="apis modules">
-            
-                <li><a href="../modules/client.html">client</a></li>
-            
-                <li><a href="../modules/comment.html">comment</a></li>
-            
-                <li><a href="../modules/enums.html">enums</a></li>
-            
-                <li><a href="../modules/server.html">server</a></li>
-            
-            </ul>
-        </div>
+      </form>
     </div>
+  </div>
+</nav>
+</header>
+
+    <main class="container">
+      <div class="row">
+        <article class="col-sm-8 col-sm-push-4 col-md-9 col-md-push-3">
+          <section id="title" class="hidden">akismet.Comment - Akismet.js</section>
+          <section id="content"><div class="page-header">
+  <h1>akismet.Comment <small>Class</small></h1>
 </div>
 
+
+  <div class="callout callout-success"><p>Represents a comment submitted by an author.</p>
+</div>
+
+
+<div class="callout callout-warning">
+  
+
+  
+
+  
+    <div>Defined in: <a href="../files/lib_comment.js.html#l139">lib\comment.js:139</a></div>
+  
+
+  
+    
+      <div>Module: <a href="../modules/comment.html">comment</a></div>
+    
+  
+
+  
+</div>
+
+
+
+
+  <h2>Constructor</h2>
+  <div class="constructor"><div id="method_akismet.Comment" class="">
+  <h3>
+    akismet.Comment
+    <small>
+      
+      
+      
+      
+      
+      
+    </small>
+  </h3>
+
+  
+
+  <div class="callout callout-warning">
+    
+      
+        
+        
+          <div>Defined in: <a href="../files/lib_comment.js.html#l139">lib\comment.js:139</a></div>
+        
+      
+    
+
+    
+  </div>
+
+  
+
+  
+    <div class="callout callout-default">
+      <h4>Parameters</h4>
+
+      <ul class="list-group">
+        
+          <li class="list-group-item">
+            <div>
+              
+                [ <strong>options</strong> ]
+                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
+                <span class="label label-info" title="This parameter is optional">optional</span>
+              
+
+              
             </div>
-        </div>
-        <div class="yui3-u-3-4">
-                <div id="api-options">
-        Show:
-        <label for="api-show-inherited">
-            <input type="checkbox" id="api-show-inherited" checked>
-            Inherited
-        </label>
 
-        <label for="api-show-protected">
-            <input type="checkbox" id="api-show-protected">
-            Protected
-        </label>
-
-        <label for="api-show-private">
-            <input type="checkbox" id="api-show-private">
-            Private
-        </label>
-        <label for="api-show-deprecated">
-            <input type="checkbox" id="api-show-deprecated">
-            Deprecated
-        </label>
-
+            
+              <div><p>An object specifying values used to initialize this instance.</p>
+</div>
+            
+          </li>
+        
+      </ul>
     </div>
+  
 
+  
 
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-                        <h1>akismet.Comment Class</h1>
-<div class="box meta">
-    
-
-    
-
-    
-        <div class="foundat">
-            Defined in: <a href="../files/lib_comment.js.html#l139"><code>lib\comment.js:139</code></a>
-        </div>
-    
-
-    
-        
-            Module: <a href="../modules/comment.html">comment</a>
-        
-    
-
-    
+  
+</div>
 </div>
 
 
+<h2>Members</h2>
 
-<div class="box intro">
-    <p>Represents a comment submitted by an author.</p>
-
-</div>
-
-
-    <div class="constructor">
-        <h2>Constructor</h2>
-        <div id="method_akismet.Comment" class="method item">
-    <h3 class="name"><code>akismet.Comment</code></h3>
-
+<div>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#class-index"><i class="fa fa-info-circle"></i> Index</a></li>
+    <li><a data-toggle="tab" href="#class-property"><i class="fa fa-pencil-square-o"></i> Properties</a></li>
+    <li><a data-toggle="tab" href="#class-method"><i class="fa fa-cog"></i> Methods</a></li>
     
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
-                    
-                        <code class="optional">[options]</code>
-                    
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
     
+  </ul>
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
+  <div class="tab-content">
+    <div id="class-index" class="tab-pane active">
+      <div class="row">
         
-            
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><a data-toggle="collapse" href="#class-index-properties">Properties</a></h3>
+              </div>
+
+              <ul id="class-index-properties" class="list-group collapse in">
                 
-                <p>
+                  <a class="list-group-item" href="#property_author">
+                    author
+                    
+                    
+                  </a>
                 
-                Defined in
+                  <a class="list-group-item" href="#property_content">
+                    content
+                    
+                    
+                  </a>
                 
-            
-        
-        
-        <a href="../files/lib_comment.js.html#l139"><code>lib\comment.js:139</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
+                  <a class="list-group-item" href="#property_permalink">
+                    permalink
                     
-                        <code class="param-name optional">[options]</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a></span>
-                        <span class="flag optional" title="This parameter is optional.">optional</span>
                     
-
-                    
-
-                    <div class="param-description">
-                        <p>An object specifying values used to initialize this instance.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-
-    
-</div>
-
-    </div>
-
-
-<div id="classdocs" class="tabview">
-    <ul class="api-class-tabs">
-        <li class="api-class-tab index"><a href="#index">Index</a></li>
-
-        
-            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
-        
-        
-            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
-        
-        
-        
-    </ul>
-
-    <div>
-        <div id="index" class="api-class-tabpanel index">
-            <h2 class="off-left">Item Index</h2>
-
-            
-                <div class="index-section methods">
-                    <h3>Methods</h3>
-
-                    <ul class="index-list methods">
-                        
-                            <li class="index-item method">
-                                <a href="#method_fromJSON">fromJSON</a>
-
-                                
-                                    <span class="flag static">static</span>
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_toJSON">toJSON</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item method">
-                                <a href="#method_toString">toString</a>
-
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                </div>
-            
-
-            
-                <div class="index-section properties">
-                    <h3>Properties</h3>
-
-                    <ul class="index-list properties">
-                        
-                            <li class="index-item property">
-                                <a href="#property_author">author</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_content">content</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_permalink">permalink</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_referrer">referrer</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_type">type</a>
-
-                                
-                                
-                            </li>
-                        
-                    </ul>
-                </div>
-            
-
-            
-
-            
-        </div>
-
-        
-            <div id="methods" class="api-class-tabpanel">
-                <h2 class="off-left">Methods</h2>
-
+                  </a>
                 
-                    <div id="method_fromJSON" class="method item">
-    <h3 class="name"><code>fromJSON</code></h3>
-
-    
-        <div class="args">
-            <span class="paren">(</span><ul class="args-list inline commas">
-            
-                <li class="arg">
+                  <a class="list-group-item" href="#property_referrer">
+                    referrer
                     
-                        <code>json</code>
                     
-                </li>
-            
-            </ul><span class="paren">)</span>
-        </div>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="../classes/akismet.Comment.html" class="crosslink">akismet.Comment</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-        <span class="flag static">static</span>
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
+                  </a>
                 
-                <p>
+                  <a class="list-group-item" href="#property_type">
+                    type
+                    
+                    
+                  </a>
                 
-                Defined in
-                
-            
-        
-        
-        <a href="../files/lib_comment.js.html#l189"><code>lib\comment.js:189</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Creates a new comment from the specified JSON string.</p>
-
-    </div>
-
-    
-        <div class="params">
-            <h4>Parameters:</h4>
-
-            <ul class="params-list">
-            
-                <li class="param">
-                    
-                        <code class="param-name">json</code>
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-                    
-
-                    
-
-                    <div class="param-description">
-                        <p>A JSON string, or an already parsed object, representing a comment.</p>
-
-                    </div>
-
-                    
-                </li>
-            
-            </ul>
-        </div>
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="../classes/akismet.Comment.html" class="crosslink">akismet.Comment</a></span>:
-                    
-                    <p>The instance corresponding to the specified JSON object, or <code>null</code> if a parsing error occurred.</p>
-
-                
+              </ul>
             </div>
-        </div>
-    
+          </div>
+        
 
-    
-</div>
+        
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><a data-toggle="collapse" href="#class-index-methods">Methods</a></h3>
+              </div>
 
+              <ul id="class-index-methods" class="list-group collapse in">
                 
-                    <div id="method_toJSON" class="method item">
-    <h3 class="name"><code>toJSON</code></h3>
-
-    
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/lib_comment.js.html#l223"><code>lib\comment.js:223</code></a>
-        
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Converts this object to a string in JSON format.</p>
-
-    </div>
-
-    
-
-    
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                
+                  <a class="list-group-item" href="#method_fromJSON">
+                    fromJSON
+                    <span class="label label-default">static</span>
                     
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
-                    
-                    <p>The JSON representation of this object.</p>
-
+                  </a>
                 
+                  <a class="list-group-item" href="#method_toJSON">
+                    toJSON
+                    
+                    
+                  </a>
+                
+                  <a class="list-group-item" href="#method_toString">
+                    toString
+                    
+                    
+                  </a>
+                
+              </ul>
             </div>
-        </div>
-    
+          </div>
+        
+      </div>
+
+      <div class="row">
+        
+
+        
+      </div>
+    </div>
 
     
+      <div id="class-property" class="tab-pane">
+        <div id="property_author" class="">
+  <h3>
+    author
+    <small>
+      <span class="type"><a href="../classes/akismet.Author.html" class="crosslink">akismet.Author</a></span>
+      
+      
+      
+      
+    </small>
+  </h3>
+
+  
+    <div class="callout callout-success"><p>The comment&#39;s author.</p>
 </div>
+  
 
-                
-                    <div id="method_toString" class="method item">
-    <h3 class="name"><code>toString</code></h3>
-
+  <div class="callout callout-warning">
     
-        <span class="paren">()</span>
-    
-
-    
-        <span class="returns-inline">
-            <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-        </span>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
+      
         
         
-        <a href="../files/lib_comment.js.html#l242"><code>lib\comment.js:242</code></a>
+          <div>Defined in: <a href="../files/lib_comment.js.html#l147">lib\comment.js:147</a></div>
         
-        </p>
-
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Returns a string representation of this object.</p>
-
-    </div>
+      
+    
 
     
 
     
-        <div class="returns">
-            <h4>Returns:</h4>
+  </div>
 
-            <div class="returns-description">
-                
-                    
-                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>:
-                    
-                    <p>The string representation of this object.</p>
+  
 
-                
-            </div>
-        </div>
-    
+  
 
-    
+  
 </div>
+<div id="property_content" class="">
+  <h3>
+    content
+    <small>
+      <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+      
+      
+      
+      
+    </small>
+  </h3>
 
-                
-            </div>
-        
-
-        
-            <div id="properties" class="api-class-tabpanel">
-                <h2 class="off-left">Properties</h2>
-
-                
-                    <div id="property_author" class="property item">
-    <h3 class="name"><code>author</code></h3>
-    <span class="type"><a href="../classes/akismet.Author.html" class="crosslink">akismet.Author</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/lib_comment.js.html#l147"><code>lib\comment.js:147</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The comment&#39;s author.</p>
-
-    </div>
-
-    
-
-    
-
-    
+  
+    <div class="callout callout-success"><p>The comment&#39;s content.</p>
 </div>
+  
 
-                
-                    <div id="property_content" class="property item">
-    <h3 class="name"><code>content</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
+  <div class="callout callout-warning">
     
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
+      
         
         
-        <a href="../files/lib_comment.js.html#l154"><code>lib\comment.js:154</code></a>
+          <div>Defined in: <a href="../files/lib_comment.js.html#l154">lib\comment.js:154</a></div>
         
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The comment&#39;s content.</p>
-
-    </div>
-
+      
     
 
     
 
     
+  </div>
+
+  
+
+  
+
+  
 </div>
+<div id="property_permalink" class="">
+  <h3>
+    permalink
+    <small>
+      <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+      
+      
+      
+      
+    </small>
+  </h3>
 
-                
-                    <div id="property_permalink" class="property item">
-    <h3 class="name"><code>permalink</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/lib_comment.js.html#l161"><code>lib\comment.js:161</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The permanent location of the entry the comment is submitted to.</p>
-
-    </div>
-
-    
-
-    
-
-    
+  
+    <div class="callout callout-success"><p>The permanent location of the entry the comment is submitted to.</p>
 </div>
+  
 
-                
-                    <div id="property_referrer" class="property item">
-    <h3 class="name"><code>referrer</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
-
+  <div class="callout callout-warning">
     
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
+      
         
         
-        <a href="../files/lib_comment.js.html#l168"><code>lib\comment.js:168</code></a>
+          <div>Defined in: <a href="../files/lib_comment.js.html#l161">lib\comment.js:161</a></div>
         
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>The URL of the webpage that linked to the entry being requested.</p>
-
-    </div>
-
+      
     
 
     
 
     
+  </div>
+
+  
+
+  
+
+  
 </div>
+<div id="property_referrer" class="">
+  <h3>
+    referrer
+    <small>
+      <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+      
+      
+      
+      
+    </small>
+  </h3>
 
-                
-                    <div id="property_type" class="property item">
-    <h3 class="name"><code>type</code></h3>
-    <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+  
+    <div class="callout callout-success"><p>The URL of the webpage that linked to the entry being requested.</p>
+</div>
+  
 
+  <div class="callout callout-warning">
+    
+      
+        
+        
+          <div>Defined in: <a href="../files/lib_comment.js.html#l168">lib\comment.js:168</a></div>
+        
+      
     
 
     
 
     
+  </div>
 
-    
+  
 
-    <div class="meta">
-        
-            
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/lib_comment.js.html#l175"><code>lib\comment.js:175</code></a>
-        
-        </p>
+  
 
-        
+  
+</div>
+<div id="property_type" class="">
+  <h3>
+    type
+    <small>
+      <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+      
+      
+      
+      
+    </small>
+  </h3>
 
-        
-    </div>
-
-    <div class="description">
-        <p>The comment&#39;s type.
+  
+    <div class="callout callout-success"><p>The comment&#39;s type.
 This string value specifies a <code>akismet.CommentType</code> constant or a made up value like <code>&quot;registration&quot;</code>.</p>
+</div>
+  
 
-    </div>
-
+  <div class="callout callout-warning">
+    
+      
+        
+        
+          <div>Defined in: <a href="../files/lib_comment.js.html#l175">lib\comment.js:175</a></div>
+        
+      
     
 
     
 
     
+  </div>
+
+  
+
+  
+
+  
 </div>
 
-                
+      </div>
+    
+
+    
+      <div id="class-method" class="tab-pane">
+        <div id="method_fromJSON" class="">
+  <h3>
+    fromJSON
+    <small>
+      
+      
+      
+      <span class="label label-default">static</span>
+      
+      
+    </small>
+  </h3>
+
+  
+    <div class="callout callout-success"><p>Creates a new comment from the specified JSON string.</p>
+</div>
+  
+
+  <div class="callout callout-warning">
+    
+      
+        
+        
+          <div>Defined in: <a href="../files/lib_comment.js.html#l189">lib\comment.js:189</a></div>
+        
+      
+    
+
+    
+  </div>
+
+  
+
+  
+    <div class="callout callout-default">
+      <h4>Parameters</h4>
+
+      <ul class="list-group">
+        
+          <li class="list-group-item">
+            <div>
+              
+                <strong>json</strong>
+                <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+              
+
+              
             </div>
-        
 
+            
+              <div><p>A JSON string, or an already parsed object, representing a comment.</p>
+</div>
+            
+          </li>
         
-
-        
+      </ul>
     </div>
+  
+
+  
+    <div class="callout callout-default">
+      <h4>
+        Returns
+        <small><span class="type"><a href="../classes/akismet.Comment.html" class="crosslink">akismet.Comment</a></span></small>
+      </h4>
+
+      
+        <div><p>The instance corresponding to the specified JSON object, or <code>null</code> if a parsing error occurred.</p>
+</div>
+      
+    </div>
+  
+
+  
+</div>
+<div id="method_toJSON" class="">
+  <h3>
+    toJSON
+    <small>
+      
+      
+      
+      
+      
+      
+    </small>
+  </h3>
+
+  
+    <div class="callout callout-success"><p>Converts this object to a string in JSON format.</p>
+</div>
+  
+
+  <div class="callout callout-warning">
+    
+      
+        
+        
+          <div>Defined in: <a href="../files/lib_comment.js.html#l223">lib\comment.js:223</a></div>
+        
+      
+    
+
+    
+  </div>
+
+  
+
+  
+
+  
+    <div class="callout callout-default">
+      <h4>
+        Returns
+        <small><span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span></small>
+      </h4>
+
+      
+        <div><p>The JSON representation of this object.</p>
+</div>
+      
+    </div>
+  
+
+  
+</div>
+<div id="method_toString" class="">
+  <h3>
+    toString
+    <small>
+      
+      
+      
+      
+      
+      
+    </small>
+  </h3>
+
+  
+    <div class="callout callout-success"><p>Returns a string representation of this object.</p>
+</div>
+  
+
+  <div class="callout callout-warning">
+    
+      
+        
+        
+          <div>Defined in: <a href="../files/lib_comment.js.html#l242">lib\comment.js:242</a></div>
+        
+      
+    
+
+    
+  </div>
+
+  
+
+  
+
+  
+    <div class="callout callout-default">
+      <h4>
+        Returns
+        <small><span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span></small>
+      </h4>
+
+      
+        <div><p>The string representation of this object.</p>
+</div>
+      
+    </div>
+  
+
+  
 </div>
 
-                    </div>
-                </div>
-            </div>
+      </div>
+    
+
+    
+
+    
+  </div>
+</div>
+</section>
+          <section id="results" class="hidden"></section>
+        </article>
+
+        <aside class="col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-9"><h3>APIs</h3>
+
+<ul class="nav nav-tabs nav-justified">
+  
+    <li class="active"><a href="#api-classes" data-toggle="tab"><i class="fa fa-cube"></i> Classes</a></li>
+  
+  
+    <li class=""><a href="#api-modules" data-toggle="tab"><i class="fa fa-cubes"></i> Modules</a></li>
+  
+</ul>
+
+<div class="tab-content">
+  <p>
+    <input id="api-filter" class="form-control" placeholder="Type to filter APIs" type="search">
+  </p>
+
+  
+    <div id="api-classes" class="tab-pane active">
+      <ul class="list-group">
+        
+          <a class="list-group-item ellipsis" href="../classes/akismet.Author.html">akismet.Author</a>
+        
+          <a class="list-group-item ellipsis" href="../classes/akismet.Blog.html">akismet.Blog</a>
+        
+          <a class="list-group-item ellipsis" href="../classes/akismet.Client.html">akismet.Client</a>
+        
+          <a class="list-group-item ellipsis" href="../classes/akismet.Comment.html">akismet.Comment</a>
+        
+          <a class="list-group-item ellipsis" href="../classes/akismet.CommentType.html">akismet.CommentType</a>
+        
+          <a class="list-group-item ellipsis" href="../classes/akismet.EndPoints.html">akismet.EndPoints</a>
+        
+          <a class="list-group-item ellipsis" href="../classes/akismet.HTTPHeaders.html">akismet.HTTPHeaders</a>
+        
+          <a class="list-group-item ellipsis" href="../classes/akismet.Server.html">akismet.Server</a>
+        
+      </ul>
+    </div>
+  
+
+  
+    <div id="api-modules" class="tab-pane">
+      <ul class="list-group">
+        
+          <a class="list-group-item ellipsis" href="../modules/client.html">client</a>
+        
+          <a class="list-group-item ellipsis" href="../modules/comment.html">comment</a>
+        
+          <a class="list-group-item ellipsis" href="../modules/enums.html">enums</a>
+        
+          <a class="list-group-item ellipsis" href="../modules/server.html">server</a>
+        
+      </ul>
+    </div>
+  
+</div>
+</aside>
+      </div>
+    </main>
+
+    <footer class="hidden-xs">
+      <nav class="navbar navbar-inverse">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li><p class="navbar-text">API Docs for: <strong>0.3.2</strong></p></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/cedx/docgen.js" rel="external" target="_blank" title="Generated by DocGen.js">DocGen.js</a></li>
+          </ul>
         </div>
-    </div>
-</div>
-<script src="../assets/vendor/prettify/prettify-min.js"></script>
-<script>prettyPrint();</script>
-<script src="../assets/js/yui-prettify.js"></script>
-<script src="../assets/../api.js"></script>
-<script src="../assets/js/api-filter.js"></script>
-<script src="../assets/js/api-list.js"></script>
-<script src="../assets/js/api-search.js"></script>
-<script src="../assets/js/apidocs.js"></script>
-</body>
+      </nav>
+    </footer>
+
+    <script src="../assets/js/web.min.js"></script>
+    <script src="../assets/vendor/prism.js" data-manual></script>
+  </body>
 </html>
