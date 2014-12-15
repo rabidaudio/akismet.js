@@ -4,7 +4,7 @@
         "name": "Akismet.js",
         "url": "https://www.npmjs.org/package/akismet-js",
         "description": "Prevent comment spam using Akismet service.",
-        "version": "0.3.2"
+        "version": "0.3.4"
     },
     "files": {
         "lib\\client.js": {
@@ -68,7 +68,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "lib\\client.js",
-            "line": 92,
+            "line": 96,
             "description": "Contains classes that provide a simple programming interface for querying the [Akismet](https://akismet.com) service."
         },
         "comment": {
@@ -83,7 +83,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "lib\\comment.js",
-            "line": 139,
+            "line": 143,
             "description": "Provides classes describing a comment and its author."
         },
         "enums": {
@@ -110,7 +110,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "lib\\server.js",
-            "line": 22,
+            "line": 23,
             "description": "Provides an HTTP server for relaying queries from clients to the [Akismet](https://akismet.com) service."
         }
     },
@@ -154,7 +154,7 @@
             "module": "client",
             "namespace": "",
             "file": "lib\\client.js",
-            "line": 92,
+            "line": 96,
             "description": "Provides the base class for clients that submit comments to [Akismet](https://akismet.com) service.",
             "is_constructor": 1,
             "params": [
@@ -225,7 +225,7 @@
             "module": "comment",
             "namespace": "",
             "file": "lib\\comment.js",
-            "line": 139,
+            "line": 143,
             "description": "Represents a comment submitted by an author.",
             "is_constructor": 1,
             "params": [
@@ -278,7 +278,7 @@
             "module": "server",
             "namespace": "",
             "file": "lib\\server.js",
-            "line": 22,
+            "line": 23,
             "description": "An HTTP server that acts as a proxy between clients and the [Akismet](https://akismet.com) service.",
             "is_constructor": 1,
             "params": [
@@ -324,7 +324,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 49,
+            "line": 52,
             "description": "Creates a new author from the specified JSON string.",
             "itemtype": "method",
             "name": "fromJSON",
@@ -345,10 +345,18 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 70,
+            "line": 73,
             "description": "Converts this object to a string in JSON format.",
             "itemtype": "method",
             "name": "toJSON",
+            "params": [
+                {
+                    "name": "space",
+                    "description": "Causes the resulting string to be pretty-printed.",
+                    "type": "Number|String",
+                    "optional": true
+                }
+            ],
             "return": {
                 "description": "The JSON representation of this object.",
                 "type": "String"
@@ -358,7 +366,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 83,
+            "line": 87,
             "description": "Returns a string representation of this object.",
             "itemtype": "method",
             "name": "toString",
@@ -371,7 +379,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 102,
+            "line": 106,
             "description": "The Akismet API key.",
             "itemtype": "property",
             "name": "apiKey",
@@ -381,7 +389,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 109,
+            "line": 113,
             "description": "The front page or home URL of the instance making requests.",
             "itemtype": "property",
             "name": "blog",
@@ -391,7 +399,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 116,
+            "line": 120,
             "description": "The user agent string to use when making requests.\nIf possible, the user agent string should always have the following format: `Application Name/Version | Plugin Name/Version`.",
             "itemtype": "property",
             "name": "userAgent",
@@ -401,7 +409,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 124,
+            "line": 128,
             "description": "The URL of the remote service.",
             "itemtype": "property",
             "name": "serviceUrl",
@@ -412,7 +420,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 138,
+            "line": 145,
             "description": "The host of the default remote service.",
             "itemtype": "property",
             "name": "DEFAULT_SERVICE",
@@ -424,7 +432,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 147,
+            "line": 154,
             "description": "Checks the specified comment against the service database, and returns a value indicating whether it is spam.",
             "itemtype": "method",
             "name": "checkComment",
@@ -446,7 +454,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 176,
+            "line": 183,
             "description": "Submits the specified comment that was incorrectly marked as spam but should not have been.",
             "itemtype": "method",
             "name": "submitHam",
@@ -469,7 +477,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 200,
+            "line": 207,
             "description": "Submits the specified comment that was not marked as spam but should have been.",
             "itemtype": "method",
             "name": "submitSpam",
@@ -492,7 +500,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 224,
+            "line": 231,
             "description": "Returns a string representation of this object.",
             "itemtype": "method",
             "name": "toString",
@@ -505,7 +513,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 238,
+            "line": 245,
             "description": "Checks the API key against the service database, and returns a value indicating whether it is valid.",
             "itemtype": "method",
             "name": "verifyKey",
@@ -522,7 +530,7 @@
         },
         {
             "file": "lib\\client.js",
-            "line": 254,
+            "line": 261,
             "description": "Queries the service by posting the specified fields to a given end point, and returns the response as a string.",
             "itemtype": "method",
             "name": "_queryService",
@@ -637,7 +645,7 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 91,
+            "line": 94,
             "description": "Creates a new author from the specified JSON string.",
             "itemtype": "method",
             "name": "fromJSON",
@@ -658,10 +666,18 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 115,
+            "line": 118,
             "description": "Converts this object to a string in JSON format.",
             "itemtype": "method",
             "name": "toJSON",
+            "params": [
+                {
+                    "name": "space",
+                    "description": "Causes the resulting string to be pretty-printed.",
+                    "type": "Number|String",
+                    "optional": true
+                }
+            ],
             "return": {
                 "description": "The JSON representation of this object.",
                 "type": "String"
@@ -671,7 +687,7 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 130,
+            "line": 134,
             "description": "Returns a string representation of this object.",
             "itemtype": "method",
             "name": "toString",
@@ -684,7 +700,7 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 147,
+            "line": 151,
             "description": "The comment's author.",
             "itemtype": "property",
             "name": "author",
@@ -694,7 +710,7 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 154,
+            "line": 158,
             "description": "The comment's content.",
             "itemtype": "property",
             "name": "content",
@@ -704,7 +720,7 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 161,
+            "line": 165,
             "description": "The permanent location of the entry the comment is submitted to.",
             "itemtype": "property",
             "name": "permalink",
@@ -714,7 +730,7 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 168,
+            "line": 172,
             "description": "The URL of the webpage that linked to the entry being requested.",
             "itemtype": "property",
             "name": "referrer",
@@ -724,7 +740,7 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 175,
+            "line": 179,
             "description": "The comment's type.\nThis string value specifies a `akismet.CommentType` constant or a made up value like `\"registration\"`.",
             "itemtype": "property",
             "name": "type",
@@ -734,7 +750,7 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 189,
+            "line": 196,
             "description": "Creates a new comment from the specified JSON string.",
             "itemtype": "method",
             "name": "fromJSON",
@@ -755,10 +771,18 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 223,
+            "line": 230,
             "description": "Converts this object to a string in JSON format.",
             "itemtype": "method",
             "name": "toJSON",
+            "params": [
+                {
+                    "name": "space",
+                    "description": "Causes the resulting string to be pretty-printed.",
+                    "type": "Number|String",
+                    "optional": true
+                }
+            ],
             "return": {
                 "description": "The JSON representation of this object.",
                 "type": "String"
@@ -768,7 +792,7 @@
         },
         {
             "file": "lib\\comment.js",
-            "line": 242,
+            "line": 250,
             "description": "Returns a string representation of this object.",
             "itemtype": "method",
             "name": "toString",
@@ -865,7 +889,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 31,
+            "line": 32,
             "description": "Emitted when the server closes.",
             "itemtype": "event",
             "name": "close",
@@ -874,7 +898,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 36,
+            "line": 37,
             "description": "Emitted each time the server experiences an error.",
             "itemtype": "event",
             "name": "error",
@@ -890,7 +914,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 42,
+            "line": 43,
             "description": "Emitted when the server has been bound after calling `listen` method.",
             "itemtype": "event",
             "name": "listening",
@@ -899,7 +923,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 47,
+            "line": 48,
             "description": "Emitted each time there is a request.",
             "itemtype": "event",
             "name": "request",
@@ -908,6 +932,11 @@
                     "name": "req",
                     "description": "The request sent by the client.",
                     "type": "http.IncomingMessage"
+                },
+                {
+                    "name": "res",
+                    "description": "The response sent by the server.",
+                    "type": "http.ServerResponse"
                 }
             ],
             "class": "akismet.Server",
@@ -915,7 +944,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 53,
+            "line": 55,
             "description": "The underlying [Express](http://expressjs.com/api.html#express) application used for routing requests.",
             "itemtype": "property",
             "name": "_express",
@@ -927,7 +956,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 64,
+            "line": 66,
             "description": "The server settings.",
             "itemtype": "property",
             "name": "_options",
@@ -939,7 +968,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 72,
+            "line": 74,
             "description": "The underlying HTTP(S) service listening for requests.",
             "itemtype": "property",
             "name": "_httpService",
@@ -951,7 +980,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 84,
+            "line": 86,
             "description": "The host that the server is listening on.",
             "itemtype": "property",
             "name": "host",
@@ -963,7 +992,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 97,
+            "line": 99,
             "description": "The port that the server is listening on.",
             "itemtype": "property",
             "name": "port",
@@ -975,7 +1004,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 110,
+            "line": 112,
             "description": "The URL to redirect the user when a request is unhandled.\nIf this property is `null`, a 404 status code is sent instead of redirecting.",
             "itemtype": "property",
             "name": "redirectUrl",
@@ -987,7 +1016,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 124,
+            "line": 126,
             "description": "Checks a comment against the service database, and prints a value indicating whether it is spam.",
             "itemtype": "method",
             "name": "checkComment",
@@ -1008,7 +1037,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 139,
+            "line": 141,
             "description": "Stops the server from accepting new connections.",
             "itemtype": "method",
             "name": "close",
@@ -1026,7 +1055,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 156,
+            "line": 158,
             "description": "Begin accepting connections.",
             "itemtype": "method",
             "name": "listen",
@@ -1055,7 +1084,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 179,
+            "line": 181,
             "description": "Submits a comment that was incorrectly marked as spam but should not have been.",
             "itemtype": "method",
             "name": "submitHam",
@@ -1076,7 +1105,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 194,
+            "line": 196,
             "description": "Submits a comment that was not marked as spam but should have been.",
             "itemtype": "method",
             "name": "submitSpam",
@@ -1097,7 +1126,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 209,
+            "line": 211,
             "description": "Checks an API key against the service database, and prints a value indicating whether it is a valid key.",
             "itemtype": "method",
             "name": "verifyKey",
@@ -1118,36 +1147,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 223,
-            "description": "Adds [CORS](http://www.w3.org/TR/cors) headers to the response.",
-            "itemtype": "method",
-            "name": "_addCORSHeaders",
-            "params": [
-                {
-                    "name": "req",
-                    "description": "The request sent by a client.",
-                    "type": "express.Request"
-                },
-                {
-                    "name": "res",
-                    "description": "The response sent by the server.",
-                    "type": "express.Response"
-                },
-                {
-                    "name": "next",
-                    "description": "The callback used to pass the request off to the next middleware.",
-                    "type": "Function"
-                }
-            ],
-            "static": 1,
-            "access": "private",
-            "tagname": "",
-            "class": "akismet.Server",
-            "module": "server"
-        },
-        {
-            "file": "lib\\server.js",
-            "line": 240,
+            "line": 225,
             "description": "Processes the specified request body.",
             "itemtype": "method",
             "name": "_processRequest",
@@ -1176,7 +1176,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 269,
+            "line": 254,
             "description": "Registers the middleware.",
             "itemtype": "method",
             "name": "_registerMiddleware",
@@ -1187,7 +1187,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 280,
+            "line": 271,
             "description": "Registers the route table.",
             "itemtype": "method",
             "name": "_registerRoutes",
@@ -1198,7 +1198,7 @@
         },
         {
             "file": "lib\\server.js",
-            "line": 302,
+            "line": 293,
             "description": "Sends the specified response body.",
             "itemtype": "method",
             "name": "_sendResponse",
