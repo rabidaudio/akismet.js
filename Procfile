@@ -1,1 +1,1 @@
-web: node bin/cli.js -p $PORT
+web: node bin/cli.js --port "$PORT"
