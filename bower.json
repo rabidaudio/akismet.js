@@ -1,0 +1,24 @@
+{
+  "authors": [
+    "Cédric Belin <cedric@belin.io>"
+  ],
+  "name": "akismet.js",
+  "main": "var/akismet.js",
+  "version": "0.3.4",
+  "homepage": "https://github.com/cedx/akismet.js",
+  "description": "Prevent comment spam using Akismet service.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "akismet",
+    "comment",
+    "spam",
+    "validation"
+  ]
+}

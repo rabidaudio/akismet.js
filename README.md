@@ -128,5 +128,20 @@ $ node bin/make.js test --help
 To test the client/browser implementation, launch a server instance, and points your browser to this link:
 [Unit Tests of HTML Client](http://dev.belin.io/akismet.js)
 
+## Bower
+
+Install via [`bower`](http://bower.io):
+
+    bower install akismet
+
+The source file to use is `var/aksimet.js`. If you can't run your own CORS proxy server as noted above,
+you can use [`http://akismet-cors.herokuapp.com`](http://akismet-cors.herokuapp.com)
+
+```javascript
+var client = new akismet.Client('YourAPIKey', 'http://your.blog.url', {
+  serviceUrl: 'http://akismet-cors.herokuapp.com'
+});
+```
+
 ## License
 [Akismet.js](https://www.npmjs.org/package/akismet-js) is distributed under the MIT License.
