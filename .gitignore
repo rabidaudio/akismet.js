@@ -2,4 +2,5 @@
 /doc/api/
 /node_modules/
 /npm-debug.log
-/var/
+/var/*
+!/var/akismet.js

@@ -109,6 +109,7 @@ target.doc=function() {
 target.js=function() {
   echo('Build the client scripts...');
   exec('browserify www/js/main.js --debug --outfile www/js/tests.js');
+  exec('browserify index.js --debug --standalone akismet --outfile var/akismet.js');
   exec('uglifyjs www/js/tests.js --compress --mangle --output www/js/tests.min.js --screw-ie8');
   exec(util.format('uglifyjs "%s" --compress --mangle --output www/js/mocha.js --screw-ie8', require.resolve('mocha/mocha.js')));
 };
