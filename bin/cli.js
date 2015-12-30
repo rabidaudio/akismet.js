@@ -2,92 +2,111 @@
 
 /**
  * Command line interface.
- * @module bin.cli
+ * @module bin/cli
  */
 'use strict';
 
 // Module dependencies.
-var program=require('commander');
-var Server=require('../lib/server');
-var util=require('util');
+const pkg=require('../package.json');
+const program=require('commander');
+const Server=require('../lib/server');
 
 /**
  * Represents an application providing functionalities specific to console requests.
- * @class cli.Application
- * @static
  */
-var Application={
+class Application {
 
   /**
-   * The application name.
-   * @property name
-   * @type String
+   * Initializes a new instance of the class.
    */
-  name: 'akismet',
+  constructor() {
+    const format={
+      asInteger: value => parseInt(value, 10),
+      asIntegerIfNumeric: value => /^\d+$/.test(value) ? parseInt(value, 10) : value
+    };
 
-  /**
-   * Runs the application.
-   * @method run
-   */
-  run: function() {
-    process.chdir(__dirname+'/..');
-    process.title=this.name+'.js';
-
-    program._name=this.name;
+    program._name='akismet';
     program
-      .version(require('../package.json').version)
-      .option('-p, --port <port>', 'port that the server should run on [3000]', function(value) { return parseInt(value, 10); }, 3000)
-      .option('-h, --host <host>', 'host that the server should run on [0.0.0.0]', '0.0.0.0')
+      .version(pkg.version)
+      .option('-p, --port <port>', 'port that the reverse proxy should run on [3000]', format.asInteger, 3000)
+      .option('-H, --host <host>', 'host that the server should run on [0.0.0.0]', '0.0.0.0')
       .option('-r, --redirect <url>', 'the URL to redirect when a request is unhandled')
-      .option('--silent', 'silence the log output from the server')
-      .parse(process.argv);
-
-    this._startServer(program.port, program.host, program.redirect ? program.redirect : null);
-  },
+      .option('-u, --user <user>', 'user to drop privileges to once server socket is bound', format.asIntegerIfNumeric)
+      .option('--silent', 'silence the log output from the server');
+  }
 
   /**
    * Prints the specified message, with a timestamp and a new line, to the standard output.
-   * @method _log
-   * @param {String|Function} message The message to be logged. If it's a function, the message is the result of the function call.
-   * @private
+   * @param {string|function} message The message to be logged. If it's a function, the message is the result of the function call.
    */
-  _log: function(message) {
-    if(!program.silent) console.log('[%s] %s', new Date().toUTCString(), typeof message=='function' ? message() : message);
-  },
+  log(message) {
+    if(!program.silent) {
+      let now=new Date().toUTCString();
+      let text=(typeof message=='function' ? message() : message);
+      console.log(`[${now}] ${text}`);
+    }
+  }
+
+  /**
+   * Runs the application.
+   */
+  run() {
+    program.parse(process.argv);
+    this.startServer(program.port, program.host, program.redirect ? program.redirect : null).then(
+      () => { if(program.user) this.setUser(program.user); },
+      this._errorHandler.bind(this)
+    );
+  }
+
+  /**
+   * Sets the user identity of the application process.
+   * @param {number|string} userId The user identifier.
+   */
+  setUser(userId) {
+    if(typeof process.setuid!='function')
+      this.log('Changing the process user is not supported on this platform.');
+    else {
+      this.log(`Drop user privileges to: ${userId}`);
+      process.setuid(userId);
+    }
+  }
 
   /**
    * Starts a server listening for HTTP requests.
-   * @method _startServer
-   * @param {Number} port The port that the server should run on.
-   * @param {String} host The host that the server should run on.
-   * @param {String} [redirectUrl] The URL to redirect the user when a request is unhandled.
-   * @private
+   * @param {number} port The port that the server should run on.
+   * @param {string} host The host that the server should run on.
+   * @param {string} [redirectUrl] The URL to redirect the user when a request is unhandled.
+   * @return {Promise} Completes when the server has been started.
    */
-  _startServer: function(port, host, redirectUrl) {
-    var self=this;
-    var server=new Server({ redirectUrl: redirectUrl });
+  startServer(port, host, redirectUrl) {
+    let server=new Server({redirectUrl: redirectUrl});
+    server.on('close', () => this.log(`Akismet server on ${server.host}:${server.port} closed`));
+    server.on('error', this._errorHandler.bind(this));
+    server.on('listening', () => this.log(`Akismet server listening on ${server.host}:${server.port}`));
 
-    server.on('error', function(err) {
-      self._log(util.format('ERROR - %s', err));
+    server.on('request', req => {
+      let ipAddress=req.connection.remoteAddress;
+      let userAgent=req.headers['user-agent'];
+      this.log(`${ipAddress} - "${req.method} ${req.url} HTTP/${req.httpVersion}" "${userAgent}"`);
     });
 
-    server.on('request', function(req) {
-      self._log(util.format(
-        '%s - "%s %s HTTP/%s" "%s"',
-        req.connection.remoteAddress,
-        req.method,
-        req.url,
-        req.httpVersion,
-        req.headers['user-agent']
-      ));
-    });
-
-    server.listen(port, host, function() {
-      self._log(util.format('Akismet server listening on %s:%d', host, port));
-    });
+    return server.listen(port, host);
   }
-};
 
-// Public interface.
-if(module===require.main) Application.run();
+  /**
+   * Logs the error events and their associated stack trace to the standard output.
+   * @param error An error event to be logged.
+   */
+  _errorHandler(error) {
+    let message=`ERROR - ${error}`;
+    if((error instanceof Error) && 'stack' in error) message+=` ${error.stack}`;
+    this.log(message);
+  }
+}
+
+// Run the application.
+if(module===require.main) {
+  process.title='akismet.js';
+  new Application().run();
+}
 else module.exports=Application;

@@ -1,5 +1,8 @@
-/*.komodoproject
+/.idea/
+/.sonar/
+/*.iml
 /doc/api/
 /node_modules/
 /npm-debug.log
 /var/
+/web/**/*.map
